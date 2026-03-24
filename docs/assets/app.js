@@ -272,6 +272,12 @@ function buildDetailChipBlock(title, labels) {
   return block;
 }
 
+function buildInfoSummary(label) {
+  const summary = document.createElement("summary");
+  summary.append(element("span", "info-summary-label", label));
+  return summary;
+}
+
 function buildQuestionCard(question, options = {}) {
   const { compact = false, progressLabel = "", onAnswered = null } = options;
   const card = element("article", compact ? "question-card compact-card" : "question-card");
@@ -308,7 +314,7 @@ function buildQuestionCard(question, options = {}) {
     const button = element("button", "option-button");
     button.type = "button";
     button.dataset.letter = letter;
-    button.append(element("span", "option-label", letter), text(value));
+    button.append(element("span", "option-label", letter), element("span", "option-text", value));
 
     button.addEventListener("click", () => {
       optionButtons.forEach((item) => {
@@ -343,7 +349,7 @@ function buildQuestionCard(question, options = {}) {
         if (notes.length || question.confusion_note) {
           const extraNotes = document.createElement("details");
           extraNotes.className = "info-details";
-          extraNotes.append(element("summary", "", "Seçenek notları"));
+          extraNotes.append(buildInfoSummary("Seçenek notları"));
 
           const noteBody = element("div", "detail-body");
           if (notes.length) {
@@ -392,7 +398,7 @@ function buildQuestionCard(question, options = {}) {
 
   const details = document.createElement("details");
   details.className = "info-details";
-  details.append(element("summary", "", compact ? "Kaynak" : "Kaynak ve notlar"));
+  details.append(buildInfoSummary(compact ? "Kaynak" : "Kaynak ve notlar"));
 
   const detailBody = element("div", "detail-body");
   detailBody.append(
