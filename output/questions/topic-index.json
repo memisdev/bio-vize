@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T16:41:49.105Z",
+  "generatedAt": "2026-03-26T17:08:53.931Z",
   "totals": {
     "all": 300,
     "easy": 57,
@@ -630,17 +630,18 @@
       "tags": [
         "Asparajin",
         "Bilgi taşıma",
-        "Çalışma odağı",
         "Çekirdek protein",
         "Desteklenen sonuç",
         "GAG",
         "Glikokaliks",
         "Glikokonjugat",
         "Glikoprotein",
+        "Glipikan",
         "Karbohidratlar ve glikobiyoloji",
         "Kavramsal ayrım",
         "Kovalent bağ",
         "Lektin",
+        "Lipit çapası",
         "N-bağlı glikozilasyon",
         "O-bağlı glikozilasyon",
         "Oligosakkarit",
@@ -665,10 +666,12 @@
         "CHO-057"
       ],
       "tags": [
-        "Desteklenen sonuç",
-        "Doğru ifade",
+        "Glikozit bağı konumu",
         "Karbohidrat analitik yöntemleri",
-        "Karbohidratlar ve glikobiyoloji"
+        "Karbohidratlar ve glikobiyoloji",
+        "Lektin afinite kromatografisi",
+        "Metilleme analizi",
+        "Oligosakkarit ayrımı"
       ],
       "difficulties": {
         "Kolay": 0,
@@ -2805,17 +2808,18 @@
           "tags": [
             "Asparajin",
             "Bilgi taşıma",
-            "Çalışma odağı",
             "Çekirdek protein",
             "Desteklenen sonuç",
             "GAG",
             "Glikokaliks",
             "Glikokonjugat",
             "Glikoprotein",
+            "Glipikan",
             "Karbohidratlar ve glikobiyoloji",
             "Kavramsal ayrım",
             "Kovalent bağ",
             "Lektin",
+            "Lipit çapası",
             "N-bağlı glikozilasyon",
             "O-bağlı glikozilasyon",
             "Oligosakkarit",
@@ -2840,10 +2844,12 @@
             "CHO-057"
           ],
           "tags": [
-            "Desteklenen sonuç",
-            "Doğru ifade",
+            "Glikozit bağı konumu",
             "Karbohidrat analitik yöntemleri",
-            "Karbohidratlar ve glikobiyoloji"
+            "Karbohidratlar ve glikobiyoloji",
+            "Lektin afinite kromatografisi",
+            "Metilleme analizi",
+            "Oligosakkarit ayrımı"
           ],
           "difficulties": {
             "Kolay": 0,

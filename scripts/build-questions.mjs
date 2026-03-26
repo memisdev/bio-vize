@@ -1,11 +1,11 @@
 import path from "node:path";
 import { splitQuestionsByExamScope } from "../src/content/exam-scope.mjs";
-import { midtermExpansionQuestions } from "../src/content/questions/midterm-expansion.mjs";
+import { taskMidtermNewQuestions } from "../src/content/questions/task-midterm-new.mjs";
 import { buildQuestionBank } from "./lib/question-bank.mjs";
 import { writeJson } from "./lib/utils.mjs";
 
 const ROOT = process.cwd();
-const QUESTIONS_DIR = path.join(ROOT, "output", "questions");
+  const QUESTIONS_DIR = path.join(ROOT, "output", "questions");
 
 function difficultyTotals(questions) {
   return questions.reduce(
@@ -67,7 +67,7 @@ function buildTopicIndex(questions) {
 export async function buildQuestions() {
   const allQuestions = buildQuestionBank().slice().sort((a, b) => a.id.localeCompare(b.id, "en"));
   const split = splitQuestionsByExamScope(allQuestions);
-  const midtermNewQuestionIds = new Set(midtermExpansionQuestions.map((question) => question.id));
+  const midtermNewQuestionIds = new Set(taskMidtermNewQuestions.map((question) => question.id));
   const midtermNewQuestions = allQuestions.filter((question) => midtermNewQuestionIds.has(question.id));
 
   const byDifficulty = {

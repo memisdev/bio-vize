@@ -1,7 +1,8 @@
 # Midterm Gap Report
 
-- Gap görülen alt konu sayısı: 0
-- Güçlü kapsanan alt konu sayısı: 11
+- Genişletme gerektiren gerçek coverage gap sayısı: 0
+- Kalite odaklı yerinde düzeltme gerektiren alt konu sayısı: 1
 
-- Midterm tarafında önerilen yoğunluğun altında kalan alt konu yok.
-
+| Topic | Subtopic | Current count | Why insufficient | Recommended action | Recommended new question count range |
+| --- | --- | ---: | --- | --- | --- |
+| Karbohidratlar ve glikobiyoloji | Karbohidrat analitik yöntemleri | 2 | Sayısal coverage vardı, ancak legacy sorular PDF'deki yöntem bilgisini yeterince somut ölçmüyordu. | Mevcut soruları yerinde rewrite/replace et, toplamı büyütme. | 0-0 |

@@ -1,4 +1,5 @@
 import { buildAnalysis } from "./build-analysis.mjs";
+import { buildMidtermAudit } from "./build-midterm-audit.mjs";
 import { buildQuestions } from "./build-questions.mjs";
 import { buildSiteData } from "./build-site-data.mjs";
 import { validate } from "./validate.mjs";
@@ -6,6 +7,7 @@ import { validate } from "./validate.mjs";
 async function main() {
   await buildQuestions();
   await buildAnalysis();
+  await buildMidtermAudit();
   await validate();
   await buildSiteData();
   await validate();

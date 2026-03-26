@@ -6,7 +6,7 @@
 - Toplam alt konu sayısı: 76
 - Toplam üretilen soru sayısı: 300
 - Midterm / Final / Review-needed: 151 / 149 / 0
-- Midterm için yeni eklenen soru sayısı: 13
+- Midterm için yeni eklenen soru sayısı: 0
 - Kolay / Orta / Zor dağılımı: Kolay 57, Orta 144, Zor 99
 - Yasak meta dil kontrolü sonucu: Temiz
 - Exact duplicate soru kökü: Yok

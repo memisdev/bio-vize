@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T16:41:49.285Z",
+  "generatedAt": "2026-03-26T17:08:54.828Z",
   "totals": {
     "all": 300,
     "easy": 57,
@@ -129,7 +129,7 @@
     }
   ],
   "quality": {
-    "generatedAt": "2026-03-26T16:41:49.251Z",
+    "generatedAt": "2026-03-26T17:08:54.807Z",
     "inventory": [
       {
         "id": "membrane-transport",
@@ -351,7 +351,7 @@
       "final": 149,
       "review_needed": 0
     },
-    "midterm_new_question_count": 13,
+    "midterm_new_question_count": 0,
     "duplicateIds": [],
     "exact_duplicate_prompt_count": 0,
     "exact_duplicate_prompt_pairs": [],
@@ -1927,7 +1927,10 @@
     "roster_missing_ids": [],
     "roster_unexpected_ids": [],
     "unexpected_supplemental_count": 0,
-    "artifact_sync_findings": []
+    "artifact_sync_findings": [
+      "allQuestions output ile docs/data arasında eşleşmiyor",
+      "midtermQuestions output ile docs/data arasında eşleşmiyor"
+    ]
   },
   "by_scope": {
     "midterm": {

@@ -1196,32 +1196,38 @@ export const curatedSupplementalQuestions = [
     sourceTopic: "Karbohidratlar ve glikobiyoloji",
     sourceSubtopic: "Proteoglikanlar, glikoproteinler ve glikolipitler",
     sourcePages: [
-      82,
-      100
+      87,
+      88
     ],
     difficulty: "Orta",
-    questionType: "odak",
-    question: "Proteoglikanlar, glikoproteinler ve glikolipitler için aşağıdaki ifadelerden hangisi doğrudan uygundur?",
+    questionType: "uygulama",
+    question:
+      "Hücre yüzeyine bir lipit çapasıyla bağlanan ve heparan sülfat zincirleri taşıyabilen proteoglikan aşağıdakilerden hangisidir?",
     options: {
-      A: "Karbohidrat ayırma ve analizinde kullanılan temel yöntemleri tanımak.",
-      B: "N-asetilglukozamin ile N-asetilmuramik asit arasındaki glikozit bağını hidroliz etmesi.",
-      C: "Karbohidrat analitik yöntemleri için belirleyici ayrım iyon değişim ve jel filtrasyon temeli.",
-      D: "Peptidoglikanda N-asetilglukozamin ile N-asetilmuramik asit arasında bulunan glikozit bağının lizozim tarafından hidrolizlenmesiyle bakteri hücre duvarının zayıfladığını belirtir.",
-      E: "Glikokonjugat sınıflarını yapı ve işlev açısından ayırt etmek."
+      A: "Sindekan",
+      B: "Glipikan",
+      C: "Müsin",
+      D: "Gangliozit",
+      E: "Agrekan"
     },
-    correctAnswer: "E",
-    correctExplanation: "Proteoglikanlar, glikoproteinler ve glikolipitler alt konusu doğrudan glikokonjugat sınıflarını yapı ve işlev açısından ayırt etmek.",
+    correctAnswer: "B",
+    correctExplanation:
+      "Sunumda glipikanların, GPI benzeri bir lipit çapasıyla zara bağlanan hücre yüzeyi proteoglikanları olduğu; sindekanların ise zar geçiş bölgesi taşıdığı belirtilir.",
     distractorExplanations: {
-      A: "Karbohidrat analitik yöntemleri başlığıyla ilişkilidir; proteoglikanlar, glikoproteinler ve glikolipitler için ayırt edici değildir.",
-      B: "Peptidoglikan ve heteropolisakkaritler başlığıyla ilişkilidir; proteoglikanlar, glikoproteinler ve glikolipitler için ayırt edici değildir.",
-      C: "Karbohidrat analitik yöntemleri başlığıyla ilişkilidir; proteoglikanlar, glikoproteinler ve glikolipitler için ayırt edici değildir.",
-      D: "Peptidoglikan ve heteropolisakkaritler başlığıyla ilişkilidir; proteoglikanlar, glikoproteinler ve glikolipitler için ayırt edici değildir."
+      A: "Sindekan bir hücre yüzeyi proteoglikanıdır, ancak zara lipit çapasıyla değil zar geçiş bölgesiyle tutunur.",
+      B: "Doğru seçenek.",
+      C: "Müsin zar glikoproteini örneğidir; proteoglikan olarak verilmez.",
+      D: "Gangliozit bir glikosfingolipittir, proteoglikan değildir.",
+      E: "Agrekan, hiyaluronanla büyük agregatlar oluşturan ECM proteoglikanıdır; lipit çapalı hücre yüzeyi proteoglikanı değildir."
     },
-    learningObjective: "Proteoglikanlar, glikoproteinler ve glikolipitler için uygun biyokimyasal odağı belirlemek.",
+    learningObjective:
+      "Glipikanı, lipit çapasıyla zara bağlanan hücre yüzeyi proteoglikanı olarak ayırt etmek.",
     tags: [
       "Karbohidratlar ve glikobiyoloji",
       "Proteoglikanlar, glikoproteinler ve glikolipitler",
-      "Çalışma odağı"
+      "Glipikan",
+      "Proteoglikan",
+      "Lipit çapası"
     ]
   }),
   makeQuestion({
@@ -1299,31 +1305,36 @@ export const curatedSupplementalQuestions = [
     sourceSubtopic: "Karbohidrat analitik yöntemleri",
     sourcePages: [
       111,
-      117
+      112
     ],
     difficulty: "Orta",
-    questionType: "yorum",
-    question: "Karbohidrat analitik yöntemleri ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+    questionType: "uygulama",
+    question:
+      "Glikoproteinden serbestleştirilen oligosakkaritleri, özgül karbohidrat bağlanma özelliklerine göre ayırmak için en uygun yöntem aşağıdakilerden hangisidir?",
     options: {
-      A: "Karbohidrat ayırma ve analizinde kullanılan temel yöntemleri tanımak.",
-      B: "Glikozaminoglikan(lar)a kovalent bağlı çekirdek proteinden oluşur.",
-      C: "Glikokonjugat sınıflarını yapı ve işlev açısından ayırt etmek.",
-      D: "Lektinler tarafından özgül biçimde tanınan bağlanma bölgeleri oluşturabilmeleri.",
-      E: "Proteoglikanlar, glikoproteinler ve glikolipitler için merkezde yer alan ayırıcı eksen proteoglikan ve glikoprotein ayrımıdır."
+      A: "İyon değişim kromatografisi",
+      B: "Jel filtrasyon",
+      C: "Lektin afinite kromatografisi",
+      D: "Kuvvetli asitle hidroliz",
+      E: "Basit ısıtma-soğutma döngüsü"
     },
-    correctAnswer: "A",
-    correctExplanation: "Karbohidrat analitik yöntemleri başlığı karbohidrat ayırma ve analizinde kullanılan temel yöntemleri tanımak.",
+    correctAnswer: "C",
+    correctExplanation:
+      "Sunum, serbestleştirilen oligosakkarit karışımlarının iyon değişim kromatografisi, jel filtrasyon veya lektin afinite kromatografisi ile ayrılabildiğini; lektin afinite yaklaşımının bağlanma özgüllüğünü kullandığını gösterir.",
     distractorExplanations: {
-      B: "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      C: "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      D: "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      E: "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir."
+      A: "İyon değişim kromatografisi yük farkına göre ayırma yapar; özgül lektin-bağlanma özelliğini doğrudan kullanmaz.",
+      B: "Jel filtrasyon büyüklüğe göre ayırır; karbohidrat bağlanma özgüllüğü üzerinden çalışmaz.",
+      C: "Doğru seçenek.",
+      D: "Kuvvetli asitle hidroliz ayırma basamağı değil, yapı çözümünde kullanılan bozundurma yaklaşımıdır.",
+      E: "Basit ısıtma-soğutma bir oligosakkarit karışımını özgül bağlanma özelliğine göre ayırmaz."
     },
-    learningObjective: "Karbohidrat analitik yöntemleri kapsamında doğru biyokimyasal ifadeyi seçmek.",
+    learningObjective:
+      "Lektin afinite kromatografisini, oligosakkaritleri özgül bağlanma özelliklerine göre ayıran yöntem olarak tanımak.",
     tags: [
       "Karbohidratlar ve glikobiyoloji",
       "Karbohidrat analitik yöntemleri",
-      "Doğru ifade"
+      "Lektin afinite kromatografisi",
+      "Oligosakkarit ayrımı"
     ]
   }),
   makeQuestion({
@@ -1332,32 +1343,37 @@ export const curatedSupplementalQuestions = [
     sourceTopic: "Karbohidratlar ve glikobiyoloji",
     sourceSubtopic: "Karbohidrat analitik yöntemleri",
     sourcePages: [
-      111,
-      117
+      113,
+      116
     ],
     difficulty: "Zor",
-    questionType: "destekleyici sonuç",
-    question: "Karbohidrat analitik yöntemleri açısından ayırt edici seçenek aşağıdakilerden hangisidir?",
+    questionType: "süreç",
+    question:
+      "Bir oligosakkaritte hangi hidroksil gruplarının glikozit bağına katıldığını belirlemek için kullanılan klasik yaklaşım aşağıdakilerden hangisidir?",
     options: {
-      A: "Proteoglikan ve glikoprotein ayrımı.",
-      B: "İyon değişim ve jel filtrasyon temeli.",
-      C: "Yapısal karbonhidrat ve bilgi taşıyan yüzey işareti.",
-      D: "Hiyaluronan ve diğer sülfatlı GAG'lar.",
-      E: "Selüloz β(1→4), amiloz ise α bağ düzeni içerir."
+      A: "Kuvvetli baz varlığında CH3I ile metilleme, ardından asit hidrolizi ve ürün analizi",
+      B: "Yalnız jel filtrasyonla molekül boyuna göre ayırma",
+      C: "Sadece lektin afinite kromatografisi uygulama",
+      D: "Yalnız kuvvetli asitle hidroliz edip monosakkarit sayısını belirleme",
+      E: "Yalnızca UV soğurma değişimini izleme"
     },
-    correctAnswer: "B",
-    correctExplanation: "Karbohidrat analitik yöntemleri için belirleyici ayrım iyon değişim ve jel filtrasyon temeli.",
+    correctAnswer: "A",
+    correctExplanation:
+      "Sunum, oligosakkaritlerin kuvvetli baz varlığında CH3I ile metillenip ardından asit hidrolizi sonrası analiz edilmesiyle glikozit bağlarına katılan konumların belirlenebildiğini açıklar.",
     distractorExplanations: {
-      A: "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      C: "Şeker kodu ve lektinler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      D: "Glikozaminoglikanlar başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      E: "Yapısal homopolisakkaritler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir."
+      A: "Doğru seçenek.",
+      B: "Jel filtrasyon büyüklük ayırımı sağlar; bağa katılan hidroksil konumlarını vermez.",
+      C: "Lektin afinite kromatografisi bağlanma özgüllüğünü kullanır; bağ pozisyonlarını tek başına çözmez.",
+      D: "Kuvvetli asit hidrolizi monosakkarit bileşimini gösterebilir, fakat hangi -OH gruplarının bağa katıldığını doğrudan vermez.",
+      E: "UV soğurma izlemi nükleik asit ya da genel spektral takipte yararlı olabilir; glikozit bağı konumunu belirleyen klasik yöntem değildir."
     },
-    learningObjective: "Karbohidrat analitik yöntemleri için desteklenen sonucu ayırt etmek.",
+    learningObjective:
+      "Metilleme analizini glikozit bağı konumlarının belirlenmesiyle ilişkilendirmek.",
     tags: [
       "Karbohidratlar ve glikobiyoloji",
       "Karbohidrat analitik yöntemleri",
-      "Desteklenen sonuç"
+      "Metilleme analizi",
+      "Glikozit bağı konumu"
     ]
   }),
   makeQuestion({

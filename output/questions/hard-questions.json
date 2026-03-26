@@ -1008,32 +1008,34 @@
     "source_topic": "Karbohidratlar ve glikobiyoloji",
     "source_subtopic": "Karbohidrat analitik yöntemleri",
     "source_pages": [
-      111,
-      117
+      113,
+      116
     ],
     "difficulty": "Zor",
-    "question_type": "destekleyici sonuç",
-    "question": "Karbohidrat analitik yöntemleri açısından ayırt edici seçenek aşağıdakilerden hangisidir?",
+    "question_type": "süreç",
+    "question": "Bir oligosakkaritte hangi hidroksil gruplarının glikozit bağına katıldığını belirlemek için kullanılan klasik yaklaşım aşağıdakilerden hangisidir?",
     "options": {
-      "A": "Proteoglikan ve glikoprotein ayrımı.",
-      "B": "İyon değişim ve jel filtrasyon temeli.",
-      "C": "Yapısal karbonhidrat ve bilgi taşıyan yüzey işareti.",
-      "D": "Hiyaluronan ve diğer sülfatlı GAG'lar.",
-      "E": "Selüloz β(1→4), amiloz ise α bağ düzeni içerir."
+      "A": "Kuvvetli baz varlığında CH3I ile metilleme, ardından asit hidrolizi ve ürün analizi.",
+      "B": "Yalnız jel filtrasyonla molekül boyuna göre ayırma.",
+      "C": "Sadece lektin afinite kromatografisi uygulama.",
+      "D": "Yalnız kuvvetli asitle hidroliz edip monosakkarit sayısını belirleme.",
+      "E": "Yalnızca UV soğurma değişimini izleme."
     },
-    "correct_answer": "B",
-    "correct_explanation": "Karbohidrat analitik yöntemleri için belirleyici ayrım iyon değişim ve jel filtrasyon temeli.",
+    "correct_answer": "A",
+    "correct_explanation": "Oligosakkaritlerin kuvvetli baz varlığında CH3I ile metillenip ardından asit hidrolizi sonrası analiz edilmesiyle glikozit bağlarına katılan konumların belirlenebildiğini açıklar.",
     "distractor_explanations": {
-      "A": "Proteoglikanlar, glikoproteinler ve glikolipitler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      "C": "Şeker kodu ve lektinler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      "D": "Glikozaminoglikanlar başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir.",
-      "E": "Yapısal homopolisakkaritler başlığıyla ilişkilidir; karbohidrat analitik yöntemleri için ayırt edici değildir."
+      "A": "Doğru seçenek.",
+      "B": "Jel filtrasyon büyüklük ayırımı sağlar; bağa katılan hidroksil konumlarını vermez.",
+      "C": "Lektin afinite kromatografisi bağlanma özgüllüğünü kullanır; bağ pozisyonlarını tek başına çözmez.",
+      "D": "Kuvvetli asit hidrolizi monosakkarit bileşimini gösterebilir, fakat hangi -OH gruplarının bağa katıldığını doğrudan vermez.",
+      "E": "UV soğurma izlemi nükleik asit ya da genel spektral takipte yararlı olabilir; glikozit bağı konumunu belirleyen klasik yöntem değildir."
     },
-    "learning_objective": "Karbohidrat analitik yöntemleri için desteklenen sonucu ayırt etmek.",
+    "learning_objective": "Metilleme analizini glikozit bağı konumlarının belirlenmesiyle ilişkilendirmek.",
     "tags": [
       "Karbohidratlar ve glikobiyoloji",
       "Karbohidrat analitik yöntemleri",
-      "Desteklenen sonuç"
+      "Metilleme analizi",
+      "Glikozit bağı konumu"
     ],
     "exam_scope": "midterm"
   },
