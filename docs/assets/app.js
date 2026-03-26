@@ -43,6 +43,24 @@ function currentPage() {
   return document.body.dataset.page || "home";
 }
 
+function onMediaQueryChange(query, handler) {
+  if (!query || typeof handler !== "function") {
+    return () => {};
+  }
+
+  if (typeof query.addEventListener === "function") {
+    query.addEventListener("change", handler);
+    return () => query.removeEventListener("change", handler);
+  }
+
+  if (typeof query.addListener === "function") {
+    query.addListener(handler);
+    return () => query.removeListener(handler);
+  }
+
+  return () => {};
+}
+
 function pageRequiresScope() {
   return PAGES_REQUIRING_SCOPE.has(currentPage());
 }
@@ -1652,7 +1670,7 @@ function buildQuestionsPage() {
       closeOverlays({ restoreFocus: true });
     }
   });
-  desktopQuery.addEventListener("change", () => {
+  onMediaQueryChange(desktopQuery, () => {
     if (isDesktop()) {
       closeOverlays();
     }
@@ -1874,7 +1892,7 @@ function buildPracticePage() {
       closeOverlays({ restoreFocus: true });
     }
   });
-  desktopQuery.addEventListener("change", () => {
+  onMediaQueryChange(desktopQuery, () => {
     if (isDesktop()) {
       closeOverlays();
     }
@@ -2320,7 +2338,7 @@ function buildFillBlanksPage() {
       closeTools({ restoreFocus: true });
     }
   });
-  desktopQuery.addEventListener("change", () => {
+  onMediaQueryChange(desktopQuery, () => {
     closeTools();
   });
 
@@ -2513,7 +2531,7 @@ function buildReviewPage() {
       closeOverlays({ restoreFocus: true });
     }
   });
-  desktopQuery.addEventListener("change", () => {
+  onMediaQueryChange(desktopQuery, () => {
     if (isDesktop()) {
       closeOverlays();
     }
