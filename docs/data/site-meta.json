@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T17:54:42.602Z",
+  "generatedAt": "2026-03-26T18:53:51.933Z",
   "totals": {
     "all": 300,
     "easy": 57,
@@ -147,7 +147,7 @@
     }
   },
   "quality": {
-    "generatedAt": "2026-03-26T17:54:42.574Z",
+    "generatedAt": "2026-03-26T18:53:51.903Z",
     "inventory": [
       {
         "id": "membrane-transport",
@@ -777,8 +777,8 @@
     "fill_blank_exact_duplicate_pairs": [],
     "fill_blank_near_duplicate_count": 0,
     "fill_blank_near_duplicate_pairs": [],
-    "fill_blank_accepted_answer_issue_count": 0,
-    "fill_blank_accepted_answer_issue_details": [],
+    "fill_blank_option_quality_issue_count": 0,
+    "fill_blank_option_quality_issue_details": [],
     "placeholder_file_findings": [],
     "topicTotals": [
       {
@@ -1958,9 +1958,7 @@
     "roster_unexpected_ids": [],
     "unexpected_supplemental_count": 0,
     "artifact_sync_findings": [
-      "fillBlankQuestions output ile docs/data arasında eşleşmiyor",
-      "fillBlankReviewQueue output ile docs/data arasında eşleşmiyor",
-      "site-meta fill_blank question_count ile dataset eşleşmiyor"
+      "fillBlankQuestions output ile docs/data arasında eşleşmiyor"
     ]
   },
   "by_scope": {

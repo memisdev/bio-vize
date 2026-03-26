@@ -1,9 +1,14 @@
 import { CURRICULUM_MAP } from "../../src/content/curriculum.mjs";
 import { MIDTERM_PDF_FILES } from "../../src/content/exam-scope.mjs";
 import { MIDTERM_FILL_BLANK_BANK, MIDTERM_FILL_BLANK_TARGETS } from "../../src/content/fill-blanks/index.mjs";
-import { BANNED_META_PATTERNS, normalizeForMatch, stemSimilarity } from "./final-question-bank.mjs";
+import {
+  BANNED_META_PATTERNS,
+  findOptionBalanceFlags,
+  normalizeForMatch,
+  stemSimilarity
+} from "./final-question-bank.mjs";
 
-const SAFE_SHORT_ANSWERS = new Set(["4", "tm", "atp", "gtp", "nad", "ros", "ap"]);
+const LETTERS = ["A", "B", "C", "D", "E"];
 
 function sortById(left, right) {
   return left.id.localeCompare(right.id, "en");
@@ -95,7 +100,7 @@ export function detectFillBlankNearDuplicates(entries) {
       if (left.source_subtopic !== right.source_subtopic) continue;
 
       const promptSimilarity = stemSimilarity(left.prompt_text, right.prompt_text);
-      const sameAnswer = answerKey(left.blank_answer) === answerKey(right.blank_answer);
+      const sameAnswer = answerKey(left.correct_completion) === answerKey(right.correct_completion);
 
       if (promptSimilarity >= 0.82 || (sameAnswer && promptSimilarity >= 0.65)) {
         duplicates.push({
@@ -140,37 +145,52 @@ export function findFillBlankBannedTermHits(entries) {
   return results;
 }
 
-export function findFillBlankAcceptedAnswerIssues(entries) {
+export function findFillBlankOptionQualityIssues(entries) {
+  const balanceFlagsById = new Map(
+    findOptionBalanceFlags(entries).map((item) => [item.id, item.flags.map((flag) => flag.type)])
+  );
   const issues = [];
 
   for (const entry of entries) {
-    const normalizedAccepted = new Map();
     const currentIssues = [];
+    const options = entry.options || {};
+    const normalizedSeen = new Map();
 
-    if (!entry.accepted_answers?.length) {
-      currentIssues.push("accepted_answers boş");
+    if (!/_{3,}/.test(entry.prompt_text || "")) {
+      currentIssues.push("prompt_blank_marker_missing");
     }
 
-    for (const answer of entry.accepted_answers || []) {
-      const key = answerKey(answer);
-      if (!key) {
-        currentIssues.push("boş normalize edilen accepted_answer bulundu");
-        continue;
+    for (const letter of LETTERS) {
+      if (!String(options[letter] || "").trim()) {
+        currentIssues.push(`missing_option_${letter}`);
       }
-      if (normalizedAccepted.has(key)) {
-        currentIssues.push(`normalize çakışması: ${answer}`);
+    }
+
+    const extraLetters = Object.keys(options).filter((letter) => !LETTERS.includes(letter));
+    if (extraLetters.length) {
+      currentIssues.push(`unexpected_option_keys:${extraLetters.join(",")}`);
+    }
+
+    for (const letter of LETTERS) {
+      const key = answerKey(options[letter]);
+      if (!key) continue;
+      if (normalizedSeen.has(key)) {
+        currentIssues.push(`duplicate_option_text:${letter}`);
       } else {
-        normalizedAccepted.set(key, answer);
-      }
-
-      if (key.length < 2 && !SAFE_SHORT_ANSWERS.has(key)) {
-        currentIssues.push(`aşırı kısa accepted_answer: ${answer}`);
+        normalizedSeen.set(key, letter);
       }
     }
 
-    const canonicalKey = answerKey(entry.blank_answer);
-    if (!normalizedAccepted.has(canonicalKey)) {
-      currentIssues.push("blank_answer accepted_answers içinde normalize eşleşmiyor");
+    if (!options[entry.correct_answer]) {
+      currentIssues.push("correct_answer_missing_from_options");
+    }
+
+    if (answerKey(options[entry.correct_answer]) !== answerKey(entry.correct_completion)) {
+      currentIssues.push("correct_completion_mismatch");
+    }
+
+    for (const flagType of balanceFlagsById.get(entry.id) || []) {
+      currentIssues.push(`option_${flagType}`);
     }
 
     if (currentIssues.length) {
@@ -185,7 +205,7 @@ export function buildFillBlankReviewQueue(entries = buildFillBlankBank()) {
   const exactDuplicates = detectFillBlankExactDuplicates(entries);
   const nearDuplicates = detectFillBlankNearDuplicates(entries);
   const bannedHits = findFillBlankBannedTermHits(entries);
-  const acceptedAnswerIssues = findFillBlankAcceptedAnswerIssues(entries);
+  const optionQualityIssues = findFillBlankOptionQualityIssues(entries);
   const reviewMap = new Map();
 
   for (const item of exactDuplicates) {
@@ -207,9 +227,9 @@ export function buildFillBlankReviewQueue(entries = buildFillBlankBank()) {
     reviewMap.get(item.id).add("banned_meta_language");
   }
 
-  for (const item of acceptedAnswerIssues) {
+  for (const item of optionQualityIssues) {
     if (!reviewMap.has(item.id)) reviewMap.set(item.id, new Set());
-    reviewMap.get(item.id).add("accepted_answer_issue");
+    reviewMap.get(item.id).add("option_quality_issue");
   }
 
   return [...reviewMap.entries()]

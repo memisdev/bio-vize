@@ -1,11 +1,4 @@
-const DEFAULT_NORMALIZATION_RULES = [
-  "trim",
-  "collapse_whitespace",
-  "case_fold",
-  "turkish_fold",
-  "apostrophe_fold",
-  "separator_fold"
-];
+const FILL_BLANK_OPTION_LETTERS = ["A", "B", "C", "D", "E"];
 
 function cleanText(value) {
   return String(value || "")
@@ -18,55 +11,24 @@ function cleanText(value) {
     .trim();
 }
 
+function capitalizeStart(value) {
+  return value.replace(/^([a-zçğıöşü])/u, (match) => match.toLocaleUpperCase("tr-TR"));
+}
+
 function sentenceCase(value) {
   const cleaned = cleanText(value);
   if (/^[a-zçğıöşü][A-Z]/u.test(cleaned)) {
     return cleaned;
   }
-  return cleaned.replace(/^([a-zçğıöşü])/u, (match) => match.toLocaleUpperCase("tr-TR"));
+  return capitalizeStart(cleaned);
 }
 
-function normalizeAnswerKey(value) {
-  return String(value || "")
-    .replace(/[’`´]/g, "'")
-    .replace(/[αΑ]/g, "alpha")
-    .replace(/[βΒ]/g, "beta")
-    .replace(/[ωΩ]/g, "omega")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/ı/g, "i")
-    .replace(/İ/g, "i")
-    .replace(/ş/g, "s")
-    .replace(/Ş/g, "s")
-    .replace(/ğ/g, "g")
-    .replace(/Ğ/g, "g")
-    .replace(/ü/g, "u")
-    .replace(/Ü/g, "u")
-    .replace(/ö/g, "o")
-    .replace(/Ö/g, "o")
-    .replace(/ç/g, "c")
-    .replace(/Ç/g, "c")
-    .toLocaleLowerCase("tr-TR")
-    .replace(/[’'"]/g, " ")
-    .replace(/[‐‑‒–—-]/g, " ")
-    .replace(/[(){}\[\],.;:!?/\\]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+function normalizePromptText(value) {
+  return capitalizeStart(cleanText(value).replace(/_{3,}/g, "_____"));
 }
 
-function uniqueAcceptedAnswers(items) {
-  const seen = new Set();
-  const accepted = [];
-
-  for (const item of items) {
-    const cleaned = cleanText(item);
-    const key = normalizeAnswerKey(cleaned);
-    if (!cleaned || !key || seen.has(key)) continue;
-    seen.add(key);
-    accepted.push(cleaned);
-  }
-
-  return accepted;
+function normalizeOptionText(value) {
+  return cleanText(value);
 }
 
 function normalizeTags(tags) {
@@ -75,13 +37,35 @@ function normalizeTags(tags) {
 
   for (const tag of tags || []) {
     const cleaned = sentenceCase(tag).replace(/[.?!]$/u, "");
-    const key = normalizeAnswerKey(cleaned);
-    if (!cleaned || !key || seen.has(key)) continue;
+    const key = cleaned.toLocaleLowerCase("tr-TR");
+    if (!cleaned || seen.has(key)) continue;
     seen.add(key);
     normalized.push(cleaned);
   }
 
   return normalized;
+}
+
+function normalizeOptions(options) {
+  return Object.fromEntries(
+    FILL_BLANK_OPTION_LETTERS.map((letter) => [letter, normalizeOptionText(options?.[letter])])
+  );
+}
+
+function findCorrectAnswer(options, correctCompletion) {
+  return FILL_BLANK_OPTION_LETTERS.find(
+    (letter) => normalizeOptionText(options?.[letter]) === normalizeOptionText(correctCompletion)
+  );
+}
+
+export function optionSet(...values) {
+  if (values.length !== FILL_BLANK_OPTION_LETTERS.length) {
+    throw new Error(`optionSet expects ${FILL_BLANK_OPTION_LETTERS.length} values.`);
+  }
+
+  return Object.fromEntries(
+    FILL_BLANK_OPTION_LETTERS.map((letter, index) => [letter, normalizeOptionText(values[index])])
+  );
 }
 
 export function makeFillBlank({
@@ -92,14 +76,25 @@ export function makeFillBlank({
   sourcePages,
   difficulty,
   promptText,
-  blankAnswer,
-  acceptedAnswers = [],
-  caseSensitive = false,
-  normalizationRules = DEFAULT_NORMALIZATION_RULES,
+  options,
+  correctAnswer,
+  correctCompletion,
   explanation,
   learningObjective,
   tags = []
 }) {
+  const normalizedOptions = normalizeOptions(options);
+  const normalizedCompletion = normalizeOptionText(correctCompletion);
+  const resolvedCorrectAnswer = correctAnswer || findCorrectAnswer(normalizedOptions, normalizedCompletion);
+
+  if (!resolvedCorrectAnswer || !normalizedOptions[resolvedCorrectAnswer]) {
+    throw new Error(`Missing correct option mapping for ${id}.`);
+  }
+
+  if (normalizedOptions[resolvedCorrectAnswer] !== normalizedCompletion) {
+    throw new Error(`correctCompletion mismatch for ${id}.`);
+  }
+
   return {
     id,
     mode: "fill_blank",
@@ -109,15 +104,14 @@ export function makeFillBlank({
     source_subtopic: sentenceCase(sourceSubtopic || sourceTopic),
     source_pages: [...new Set((sourcePages || []).map(Number).filter(Number.isFinite))].sort((a, b) => a - b),
     difficulty,
-    prompt_text: sentenceCase(promptText),
-    blank_answer: cleanText(blankAnswer),
-    accepted_answers: uniqueAcceptedAnswers([blankAnswer, ...acceptedAnswers]),
-    case_sensitive: Boolean(caseSensitive),
-    normalization_rules: [...normalizationRules],
+    prompt_text: normalizePromptText(promptText),
+    options: normalizedOptions,
+    correct_answer: resolvedCorrectAnswer,
+    correct_completion: normalizedCompletion,
     explanation: sentenceCase(explanation),
     learning_objective: sentenceCase(learningObjective),
     tags: normalizeTags([sourceTopic, sourceSubtopic || sourceTopic, ...(tags || [])])
   };
 }
 
-export { DEFAULT_NORMALIZATION_RULES };
+export { FILL_BLANK_OPTION_LETTERS };

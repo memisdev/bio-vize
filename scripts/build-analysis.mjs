@@ -2,13 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { CURRICULUM_MAP, DEDUP_RULES, PDF_ANALYSES } from "../src/content/curriculum.mjs";
 import { PDF_EXAM_SCOPE_MAP, splitQuestionsByExamScope } from "../src/content/exam-scope.mjs";
+import { FILL_BLANK_CONVERSION_META } from "../src/content/fill-blanks/index.mjs";
 import {
   buildFillBlankBank,
   buildFillBlankCoverageRows,
   detectFillBlankExactDuplicates,
   detectFillBlankNearDuplicates,
-  findFillBlankAcceptedAnswerIssues,
-  findFillBlankBannedTermHits
+  findFillBlankBannedTermHits,
+  findFillBlankOptionQualityIssues
 } from "./lib/fill-blank-bank.mjs";
 import { buildQuestionBank, buildSubtopicCoverage } from "./lib/question-bank.mjs";
 import { loadPdfInventory } from "./lib/pdf-inventory.mjs";
@@ -364,7 +365,7 @@ function buildMidtermFillBlankQualityMarkdown({
   exactDuplicates,
   nearDuplicates,
   bannedHits,
-  acceptedAnswerIssues
+  optionQualityIssues
 }) {
   const perPdf = [...new Set(fillBlanks.map((item) => item.source_pdf))]
     .sort((a, b) => a.localeCompare(b, "tr"))
@@ -381,7 +382,7 @@ function buildMidtermFillBlankQualityMarkdown({
     `- Exact duplicate prompt sayısı: ${exactDuplicates.length}`,
     `- Near-duplicate prompt sayısı: ${nearDuplicates.length}`,
     `- Meta dil ihlali sayısı: ${bannedHits.length}`,
-    `- Accepted answer issue sayısı: ${acceptedAnswerIssues.length}`,
+    `- Option quality issue sayısı: ${optionQualityIssues.length}`,
     `- Scope sızıntı sayısı: ${fillBlanks.filter((item) => item.exam_scope !== "midterm").length}`,
     "",
     "## PDF Bazlı Dağılım",
@@ -394,8 +395,8 @@ function buildMidtermFillBlankQualityMarkdown({
     ...rows.map((row) => `| ${row.subtopic} | ${row.target_count} | ${row.actual_count} | ${row.status} |`)
   ];
 
-  if (acceptedAnswerIssues.length) {
-    lines.push("", "## Accepted Answer Issues", ...acceptedAnswerIssues.map((item) => `- ${item.id}: ${item.issues.join("; ")}`));
+  if (optionQualityIssues.length) {
+    lines.push("", "## Option Quality Issues", ...optionQualityIssues.map((item) => `- ${item.id}: ${item.issues.join("; ")}`));
   }
 
   if (exactDuplicates.length) {
@@ -419,6 +420,38 @@ function buildMidtermFillBlankQualityMarkdown({
   return `${lines.join("\n")}\n`;
 }
 
+function buildFillBlankConversionMarkdown(fillBlanks) {
+  const pdfTotals = [...new Set(fillBlanks.map((item) => item.source_pdf))]
+    .sort((a, b) => a.localeCompare(b, "tr"))
+    .map((pdf) => ({
+      source_pdf: pdf,
+      question_count: fillBlanks.filter((item) => item.source_pdf === pdf).length
+    }));
+
+  const lines = [
+    "# Fill Blanks Conversion Report",
+    "",
+    `- Text-input modelinden 5 şıklı cloze modeline dönüştürülen soru sayısı: ${fillBlanks.length}`,
+    `- Prompt yeniden yazılan soru sayısı: ${FILL_BLANK_CONVERSION_META.prompt_rewritten_count}`,
+    `- Şıkları tamamen yeniden tasarlanan soru sayısı: ${FILL_BLANK_CONVERSION_META.options_redesigned_count}`,
+    `- Kapsam doğrulaması: ${fillBlanks.every((item) => item.exam_scope === "midterm") ? "Tüm kayıtlar midterm" : "scope sapması var"}`,
+    "",
+    "## PDF Bazlı Dağılım",
+    ...pdfTotals.map((row) => `- ${row.source_pdf}: ${row.question_count}`),
+    "",
+    "## Ortadan Kaldırılan Eski Problemler",
+    ...FILL_BLANK_CONVERSION_META.removed_issues.map((item) => `- ${item}`),
+    "",
+    "## UI Dönüşümü",
+    "- Serbest metin input kaldırıldı; akış artık şık seçimi ve `Kontrol Et` ile çalışır.",
+    "- Global header ve alt navigasyon çıkarıldı; çözüm yüzeyi focus-mode karta dönüştürüldü.",
+    "- Filtreler ve ilerleme özeti ikincil sheet içine taşındı; soru ekranı tek kolon ve mobil öncelikli kaldı.",
+    "- Şık kartları, geri bildirim alanı ve açıklama ritmi mevcut test çözüm ekranıyla hizalandı."
+  ];
+
+  return `${lines.join("\n")}\n`;
+}
+
 export async function buildAnalysis() {
   const questions = loadQuestions();
   const split = splitQuestionsByExamScope(questions);
@@ -429,7 +462,7 @@ export async function buildAnalysis() {
   const fillBlankExactDuplicates = detectFillBlankExactDuplicates(fillBlanks);
   const fillBlankNearDuplicates = detectFillBlankNearDuplicates(fillBlanks);
   const fillBlankBannedHits = findFillBlankBannedTermHits(fillBlanks);
-  const fillBlankAcceptedAnswerIssues = findFillBlankAcceptedAnswerIssues(fillBlanks);
+  const fillBlankOptionQualityIssues = findFillBlankOptionQualityIssues(fillBlanks);
   const byScopeCurriculum = {
     midterm: CURRICULUM_MAP.filter((entry) =>
       PDF_EXAM_SCOPE_MAP.some((scope) => scope.file_name === entry.sourcePdf && scope.exam_scope === "midterm")
@@ -488,17 +521,17 @@ export async function buildAnalysis() {
     buildMidtermFillBlankCoverageMarkdown(midtermFillBlankRows, fillBlanks)
   );
   writeText(path.join(ANALYSIS_DIR, "midterm-fill-blanks-gap-report.md"), buildMidtermFillBlankGapMarkdown(midtermFillBlankRows));
-  writeText(
-    path.join(ANALYSIS_DIR, "midterm-fill-blanks-quality-report.md"),
-    buildMidtermFillBlankQualityMarkdown({
-      fillBlanks,
-      rows: midtermFillBlankRows,
-      exactDuplicates: fillBlankExactDuplicates,
-      nearDuplicates: fillBlankNearDuplicates,
-      bannedHits: fillBlankBannedHits,
-      acceptedAnswerIssues: fillBlankAcceptedAnswerIssues
-    })
-  );
+  const fillBlankQualityMarkdown = buildMidtermFillBlankQualityMarkdown({
+    fillBlanks,
+    rows: midtermFillBlankRows,
+    exactDuplicates: fillBlankExactDuplicates,
+    nearDuplicates: fillBlankNearDuplicates,
+    bannedHits: fillBlankBannedHits,
+    optionQualityIssues: fillBlankOptionQualityIssues
+  });
+  writeText(path.join(ANALYSIS_DIR, "fill-blanks-quality-report.md"), fillBlankQualityMarkdown);
+  writeText(path.join(ANALYSIS_DIR, "midterm-fill-blanks-quality-report.md"), fillBlankQualityMarkdown);
+  writeText(path.join(ANALYSIS_DIR, "fill-blanks-conversion-report.md"), buildFillBlankConversionMarkdown(fillBlanks));
   writeText(path.join(ANALYSIS_DIR, "scope-qa-report.md"), buildScopeQaReportMarkdown({ questions, split, midtermRows: midtermCoverageRows }));
   writeJson(path.join(ANALYSIS_DIR, "coverage-summary.json"), coverageSummary);
   writeJson(path.join(ANALYSIS_DIR, "exam-scope-map.json"), PDF_EXAM_SCOPE_MAP);

@@ -6,105 +6,134 @@
     <title>Boşluk Doldurma</title>
     <meta
       name="description"
-      content="Biyokimya 2 vize kapsamındaki üç PDF için aktif hatırlama odaklı boşluk doldurma çalışma modu."
+      content="Biyokimya 2 vize kapsamındaki üç PDF için 5 şıklı seçenekli boşluk tamamlama çalışma modu."
     >
     <link rel="stylesheet" href="assets/styles.css">
   </head>
-  <body data-page="fill-blanks">
+  <body data-page="fill-blanks" data-layout="question-flow">
     <a class="skip-link" href="#main-content">İçeriğe geç</a>
 
-    <header class="site-header">
-      <div class="site-bar">
-        <a class="brand-link" href="index.html" aria-label="Biyokimya 2 ana sayfa">
-          <span class="brand-mark">Biyokimya 2</span>
-        </a>
-        <nav class="site-nav" aria-label="Ana gezinme">
-          <a href="index.html">Ana Sayfa</a>
-          <a href="questions.html">Konuya Göre</a>
-          <a href="practice.html">Rastgele Pratik</a>
-          <a href="fill-blanks.html" aria-current="page">Boşluk Doldurma</a>
-          <a href="review.html">Yanlışlarım</a>
-          <a href="coverage.html">Kapsam</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content" class="page-shell fill-blank-shell">
-      <section class="hero-panel fill-blank-hero">
-        <div class="fill-blank-hero-copy">
-          <p class="eyebrow">Yalnız Vize • 3 PDF</p>
-          <h1>Boşluk Doldurma</h1>
-          <p class="section-copy">
-            Karbonhidratlar, nükleotidler ve lipitler için kısa cevaplı aktif hatırlama modu.
-          </p>
-        </div>
-
-        <div class="fill-blank-hero-side">
-          <div id="fill-blank-mode-switch" class="mode-switch-slot" hidden></div>
-          <div class="fill-blank-summary-grid" aria-label="Boşluk doldurma özeti">
-            <article class="mini-stat">
-              <span>Çözülen</span>
-              <strong id="fill-blank-solved">0</strong>
-              <p>Denenen veya atlanan farklı boşluk</p>
-            </article>
-            <article class="mini-stat">
-              <span>Doğru</span>
-              <strong id="fill-blank-correct">0</strong>
-              <p>Toplam doğru deneme</p>
-            </article>
-            <article class="mini-stat">
-              <span>Zayıf Alan</span>
-              <strong id="fill-blank-weak">0</strong>
-              <p>Yanlış veya atlanan aktif boşluk</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel fill-blank-toolbar">
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow">Filtreler</p>
-            <h2>Vize Boşluk Havuzu</h2>
-          </div>
-        </div>
-
-        <p class="practice-active-filter fill-blank-active-filter" id="fill-blank-active-filter">
-          Vize • Tüm havuz
-        </p>
-
-        <div class="fill-blank-filter-grid">
-          <label>
-            <span>Konu alanı</span>
-            <select id="fill-blank-topic"></select>
-          </label>
-          <label>
-            <span>Zorluk</span>
-            <select id="fill-blank-difficulty">
-              <option value="">Tümü</option>
-              <option value="Kolay">Kolay</option>
-              <option value="Orta">Orta</option>
-              <option value="Zor">Zor</option>
-            </select>
-          </label>
-          <label class="toggle-card" for="fill-blank-weak-only">
-            <span class="toggle-card-label">Zayıf Sorular</span>
-            <span class="toggle-card-copy">Yanlış veya atlanan boşlukları öne al.</span>
-            <input id="fill-blank-weak-only" type="checkbox">
-          </label>
-          <div class="inline-stat fill-blank-count" id="fill-blank-count">Hazırlanıyor</div>
-        </div>
-      </section>
-
-      <section id="fill-blank-stage" class="panel fill-blank-stage" aria-live="polite"></section>
+    <main id="main-content" class="page-shell practice-shell fill-blank-focus-shell">
+      <section id="fill-blank-stage" class="question-stack practice-question-stack fill-blank-question-stack"></section>
     </main>
 
-    <nav class="bottom-nav" aria-label="Hızlı gezinme">
-      <a href="index.html">Ana</a>
-      <a href="questions.html">Konu</a>
-      <a href="practice.html">Pratik</a>
-      <a href="review.html">Yanlış</a>
-      <a href="coverage.html">Kapsam</a>
+    <section
+      class="practice-filters-panel fill-blank-tools-sheet"
+      id="fill-blank-tools-sheet"
+      aria-label="Boşluk doldurma araçları"
+    >
+      <div class="practice-sheet-head">
+        <div>
+          <p class="eyebrow">Boşluk Doldurma</p>
+          <h2>5 Şıklı Çalışma Alanı</h2>
+        </div>
+        <button class="button ghost practice-sheet-close" id="fill-blank-tools-close" type="button">
+          Kapat
+        </button>
+      </div>
+
+      <p class="fill-blank-sheet-copy">
+        Yalnız vize kapsamındaki üç PDF için seçenekli boşluk tamamlama modu.
+      </p>
+
+      <div id="fill-blank-mode-switch" class="mode-switch-slot" hidden></div>
+
+      <div class="fill-blank-summary-grid" aria-label="Boşluk doldurma özeti">
+        <article class="mini-stat">
+          <span>Çözülen</span>
+          <strong id="fill-blank-solved">0</strong>
+          <p>Denenen veya atlanan farklı boşluk</p>
+        </article>
+        <article class="mini-stat">
+          <span>Doğru</span>
+          <strong id="fill-blank-correct">0</strong>
+          <p>Toplam doğru deneme</p>
+        </article>
+        <article class="mini-stat">
+          <span>Zayıf Alan</span>
+          <strong id="fill-blank-weak">0</strong>
+          <p>Yanlış veya atlanan aktif boşluk</p>
+        </article>
+      </div>
+
+      <p class="practice-active-filter fill-blank-active-filter" id="fill-blank-active-filter">
+        Vize • Tüm havuz
+      </p>
+
+      <div class="fill-blank-filter-grid">
+        <label>
+          <span>Konu alanı</span>
+          <select id="fill-blank-topic"></select>
+        </label>
+        <label>
+          <span>Zorluk</span>
+          <select id="fill-blank-difficulty">
+            <option value="">Tümü</option>
+            <option value="Kolay">Kolay</option>
+            <option value="Orta">Orta</option>
+            <option value="Zor">Zor</option>
+          </select>
+        </label>
+        <label class="toggle-card" for="fill-blank-weak-only">
+          <span class="toggle-card-label">Zayıf Sorular</span>
+          <span class="toggle-card-copy">Yanlış veya atlanan boşlukları öne al.</span>
+          <input id="fill-blank-weak-only" type="checkbox">
+        </label>
+        <div class="inline-stat practice-sheet-count fill-blank-count" id="fill-blank-count">Hazırlanıyor</div>
+      </div>
+
+      <div class="practice-sheet-actions">
+        <button class="button ghost" id="fill-blank-reset-filters" type="button">Sıfırla</button>
+        <button class="button primary" id="fill-blank-apply-filters" type="button">Uygula</button>
+      </div>
+    </section>
+
+    <button class="practice-overlay" id="fill-blank-overlay" type="button" aria-label="Açık paneli kapat"></button>
+
+    <nav class="practice-dock" aria-label="Boşluk doldurma aksiyonları">
+      <button
+        class="button secondary practice-dock-button"
+        data-dock-action="source"
+        type="button"
+        aria-label="Kaynak"
+        title="Kaynak"
+        disabled
+      >
+        Kaynak
+      </button>
+      <button
+        class="button secondary practice-dock-button"
+        data-dock-action="explanation"
+        type="button"
+        aria-label="Açıklama"
+        title="Açıklama (cevaptan sonra açılır)"
+        disabled
+      >
+        Açıklama
+      </button>
+      <button
+        class="button primary practice-dock-button"
+        id="fill-blank-tools-dock-toggle"
+        data-dock-action="menu"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="fill-blank-tools-sheet"
+        aria-expanded="false"
+        aria-label="Ana Menü"
+        title="Ana Menü"
+      >
+        Ana Menü
+      </button>
+      <button
+        class="button primary practice-dock-button"
+        id="fill-blank-next-dock"
+        data-dock-action="next"
+        type="button"
+        aria-label="İleri"
+        title="İleri"
+      >
+        İleri
+      </button>
     </nav>
 
     <script type="module" src="assets/app.js"></script>

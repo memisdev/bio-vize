@@ -11,19 +11,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Üç karbonlu ve aldehit grubu taşıyan en basit monosakkarit örneği _____ olarak adlandırılır.",
-    "blank_answer": "Gliseraldehit",
-    "accepted_answers": [
-      "Gliseraldehit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Dihidroksiaseton",
+      "B": "Eritroz",
+      "C": "Gliseraldehit",
+      "D": "Riboz",
+      "E": "Fruktoz"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Gliseraldehit",
     "explanation": "Trioz örnekleri verilirken aldotrioz için gliseraldehit, ketotrioz için dihidroksiaseton kullanılır.",
     "learning_objective": "Monosakkaritleri karbon sayısı ve aldoz/ketoz özelliğine göre sınıflandırmak.",
     "tags": [
@@ -46,19 +42,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Keton grubu taşıyan en basit trioz monosakkarit, biyokimya terminolojisinde _____ olarak adlandırılır.",
-    "blank_answer": "Dihidroksiaseton",
-    "accepted_answers": [
-      "Dihidroksiaseton"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Gliseraldehit",
+      "B": "Riboz",
+      "C": "Dihidroksiaseton",
+      "D": "Eritroz",
+      "E": "Glukoz"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Dihidroksiaseton",
     "explanation": "Karbonhidratların temel sınıflandırılmasında dihidroksiaseton ketotriozun tipik örneği olarak verilir.",
     "learning_objective": "Monosakkaritleri karbon sayısı ve aldoz/ketoz özelliğine göre sınıflandırmak.",
     "tags": [
@@ -82,20 +74,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Karbonil grubuna en uzak kiral merkezdeki -OH grubunun sağda bulunması, monosakkaritin _____ konfigürasyonunda olduğunu gösterir.",
-    "blank_answer": "D-izomer",
-    "accepted_answers": [
-      "D-izomer",
-      "D-izomeri"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "L-izomer",
+      "B": "Alfa",
+      "C": "D-izomer",
+      "D": "Beta",
+      "E": "Epimer"
+    },
+    "correct_answer": "C",
+    "correct_completion": "D-izomer",
     "explanation": "D/L ayrımı, karbonil grubuna en uzak kiral merkezdeki düzenlenişin D- veya L-gliseraldehide benzerliğine göre yapılır.",
     "learning_objective": "D/L izomer tanımının hangi referans merkeze göre yapıldığını açıklamak.",
     "tags": [
@@ -119,19 +106,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Monosakkaritlerde D/L sınıflaması, referans olarak _____ molekülünün konfigürasyonuyla karşılaştırma yapılarak kurulur.",
-    "blank_answer": "Gliseraldehit",
-    "accepted_answers": [
-      "Gliseraldehit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Glukoz",
+      "B": "Gliseraldehit",
+      "C": "Dihidroksiaseton",
+      "D": "Riboz",
+      "E": "Fruktoz"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Gliseraldehit",
     "explanation": "D ve L gösterimi, D- veya L-gliseraldehit düzenlenişine benzerlikle belirlenir.",
     "learning_objective": "D/L izomer tanımında kullanılan referans molekülü tanımak.",
     "tags": [
@@ -154,20 +137,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Halkalı monosakkaritlerde halka oluşumuyla yeni stereomerkez haline gelen karbona _____ karbon denir.",
-    "blank_answer": "Anomerik",
-    "accepted_answers": [
-      "Anomerik",
-      "Anomerik karbon"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Karbonil",
+      "B": "Anomerik",
+      "C": "Terminal",
+      "D": "Primer",
+      "E": "Epimerik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Anomerik",
     "explanation": "Halka kapanmasıyla oluşan yeni yarı asetal/yarı ketal merkezi anomerik karbon olarak adlandırılır.",
     "learning_objective": "Halkalı monosakkaritlerde anomerik karbonun hangi karbon olduğunu tanımlamak.",
     "tags": [
@@ -191,22 +169,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Anomerik merkezdeki -OH grubu CH2OH ile ters yöndeyse ilgili anomer _____ olarak adlandırılır.",
-    "blank_answer": "Alfa",
-    "accepted_answers": [
-      "Alfa",
-      "alpha",
-      "alfa anomer",
-      "alpha anomer"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Beta",
+      "B": "Epimer",
+      "C": "Alfa",
+      "D": "L-izomer",
+      "E": "D-izomer"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Alfa",
     "explanation": "Alfa anomer, anomerik merkezdeki -OH grubunun CH2OH ile ters yönde bulunmasıyla tanımlanır.",
     "learning_objective": "Alfa ve beta anomer ayrımını anomerik merkez düzenlenişi üzerinden kurmak.",
     "tags": [
@@ -229,19 +200,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Sulu çözeltide bir şekerin alfa ve beta anomerleri arasında denge kurulmasına _____ denir.",
-    "blank_answer": "Mutarotasyon",
-    "accepted_answers": [
-      "Mutarotasyon"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Epimerizasyon",
+      "B": "Mutarotasyon",
+      "C": "Denatürasyon",
+      "D": "Esterleşme",
+      "E": "Oksidasyon"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Mutarotasyon",
     "explanation": "Mutarotasyon, halka açılıp kapanması üzerinden alfa ve beta anomerleri arasında dönüşümün kurulmasıdır.",
     "learning_objective": "Mutarotasyon kavramını anomerler arası dengeyle ilişkilendirmek.",
     "tags": [
@@ -265,20 +232,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bir hidroksil grubunun amino grupla yer değiştirdiği heksoz türevleri _____ olarak adlandırılır.",
-    "blank_answer": "Amino şekerler",
-    "accepted_answers": [
-      "Amino şekerler",
-      "amino şeker"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Uronik asitler",
+      "B": "Deoksi şekerler",
+      "C": "Amino şekerler",
+      "D": "Alditoller",
+      "E": "Ketozlar"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Amino şekerler",
     "explanation": "Glukozamin ve galaktozamin gibi örnekler amino şeker sınıfında değerlendirilir.",
     "learning_objective": "Heksoz türevlerinden amino şeker grubunu tanımak.",
     "tags": [
@@ -302,20 +264,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Glukuronik asit gibi karboksilleşmiş heksoz türevleri _____ asit sınıfına girer.",
-    "blank_answer": "Uronik",
-    "accepted_answers": [
-      "Uronik",
-      "Uronik asit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Amino",
+      "B": "Uronik",
+      "C": "Deoksi",
+      "D": "Fosforik",
+      "E": "Ketoz"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Uronik",
     "explanation": "Heksozların yükseltgenmiş türevleri arasında glukuronik asit gibi uronik asitler bulunur.",
     "learning_objective": "Uronik asitlerin hangi tip şeker türevi olduğunu tanımlamak.",
     "tags": [
@@ -338,21 +295,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Serbest anomerik karbon taşıyan disakkaritler biyokimyada _____ şekerler olarak tanımlanır.",
-    "blank_answer": "İndirgen",
-    "accepted_answers": [
-      "İndirgen",
-      "İndirgen şekerler",
-      "indirgen şeker"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "İndirgen",
+      "B": "İndirgen olmayan",
+      "C": "Fosforillenmiş",
+      "D": "Aromatik",
+      "E": "Dallanmış"
+    },
+    "correct_answer": "A",
+    "correct_completion": "İndirgen",
     "explanation": "İndirgenlik, anomerik merkezin halka-zincir dengesi kurabilecek biçimde serbest kalmasına bağlıdır.",
     "learning_objective": "İndirgen şeker kavramını serbest anomerik karbonla ilişkilendirmek.",
     "tags": [
@@ -375,21 +326,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Trehalozun indirgen olmamasının temel nedeni, iki monosakkaritin de _____ karbonlarının glikozidik bağa katılmasıdır.",
-    "blank_answer": "Anomerik",
-    "accepted_answers": [
-      "Anomerik",
-      "Anomerik karbon",
-      "anomerik karbonlar"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Karbonil",
+      "B": "Anomerik",
+      "C": "Terminal",
+      "D": "Karboksil",
+      "E": "Primer"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Anomerik",
     "explanation": "Trehalozda her iki anomerik karbon bağ oluşumuna katıldığı için halka-zincir dengesi kuracak serbest merkez kalmaz.",
     "learning_objective": "İndirgen olmayan disakkaritlerde anomerik karbonların bağa katılmasının sonucunu açıklamak.",
     "tags": [
@@ -413,21 +358,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bir monosakkaritin anomerik karbonu ile diğer şekerin hidroksil grubu arasında kurulan bağ, disakkaritlerde _____ bağı olarak adlandırılır.",
-    "blank_answer": "O-glikozit",
-    "accepted_answers": [
-      "O-glikozit",
-      "O-glikozit bağı",
-      "O-glikozidik bağ"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "N-glikozit",
+      "B": "Ester",
+      "C": "O-glikozit",
+      "D": "Peptit",
+      "E": "Disülfit"
+    },
+    "correct_answer": "C",
+    "correct_completion": "O-glikozit",
     "explanation": "Disakkarit oluşumunda bir şekerin anomerik karbonu ile diğer şekerin -OH grubu arasında O-glikozit bağı kurulur.",
     "learning_objective": "Disakkaritlerde kurulan temel kovalent bağ tipini tanımak.",
     "tags": [
@@ -451,23 +390,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "α-glukopiranozil-(1→4) adlandırmasında bağın ikinci şekerde yöneldiği karbon, _____ numaralı karbondur.",
-    "blank_answer": "4",
-    "accepted_answers": [
-      "4",
-      "Dört",
-      "Dördüncü",
-      "4. karbon",
-      "4 numaralı karbon"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "1",
+      "E": "3"
+    },
+    "correct_answer": "B",
+    "correct_completion": "4",
     "explanation": "Parantez içindeki (1→4) gösterimi, bağın birinci şekerin anomerik karbonundan ikinci şekerin 4 numaralı karbonuna uzandığını gösterir.",
     "learning_objective": "Disakkarit adlandırmasında karbon numarası notasyonunu yorumlamak.",
     "tags": [
@@ -490,19 +421,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Bitkilerde başlıca depo polisakkarit _____ olarak adlandırılır.",
-    "blank_answer": "Nişasta",
-    "accepted_answers": [
-      "Nişasta"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Selüloz",
+      "B": "Nişasta",
+      "C": "Kitin",
+      "D": "Glikojen",
+      "E": "Dekstran"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Nişasta",
     "explanation": "Bitkisel depo polisakkariti nişastadır ve amiloz ile amilopektinden oluşur.",
     "learning_objective": "Bitkilerdeki temel depo polisakkariti tanımak.",
     "tags": [
@@ -525,19 +452,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Hayvan hücrelerinde yüksek dallanma gösteren başlıca depo polisakkarit _____dir.",
-    "blank_answer": "Glikojen",
-    "accepted_answers": [
-      "Glikojen"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Nişasta",
+      "B": "İnülin",
+      "C": "Glikojen",
+      "D": "Selüloz",
+      "E": "Kitin"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Glikojen",
     "explanation": "Glikojen, hayvanlarda depo amacıyla kullanılan ve sık dallanan glukoz polimeridir.",
     "learning_objective": "Hayvanlarda bulunan temel depo polisakkariti tanımak.",
     "tags": [
@@ -561,19 +484,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Hayvanlarda β(1→4) bağlarını parçalayan enzim bulunmadığı için yapısal homopolisakkaritlerden _____ sindirilemez.",
-    "blank_answer": "Selüloz",
-    "accepted_answers": [
-      "Selüloz"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Glikojen",
+      "B": "Kitin",
+      "C": "Selüloz",
+      "D": "Amiloz",
+      "E": "Dekstran"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Selüloz",
     "explanation": "Bağırsak enzimleri alfa bağlarını hidroliz eder; beta(1→4) bağları içeren selüloz ise hayvanlarda sindirilemez.",
     "learning_objective": "Selülozun neden sindirilemeyen yapısal polisakkarit olduğunu açıklamak.",
     "tags": [
@@ -597,19 +516,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Eklem bacaklı dış iskeleti ile bazı mantar yapılarında bulunan azotlu yapısal homopolisakkarit _____dir.",
-    "blank_answer": "Kitin",
-    "accepted_answers": [
-      "Kitin"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Selüloz",
+      "B": "Kitin",
+      "C": "Amiloz",
+      "D": "Glikojen",
+      "E": "İnülin"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Kitin",
     "explanation": "Kitin, N-asetilglukozamin türevlerinden oluşan yapısal homopolisakkarit olarak verilir.",
     "learning_objective": "Kitini diğer yapısal homopolisakkaritlerden ayırt etmek.",
     "tags": [
@@ -632,19 +547,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bakteri hücre duvarında tekrarlayan heteropolisakkarit birimleri peptit köprüleriyle birleştiren yapı _____ olarak adlandırılır.",
-    "blank_answer": "Peptidoglikan",
-    "accepted_answers": [
-      "Peptidoglikan"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Hiyaluronan",
+      "B": "Peptidoglikan",
+      "C": "Glikojen",
+      "D": "Selüloz",
+      "E": "Heparin"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Peptidoglikan",
     "explanation": "Bakteri hücre duvarının temel heteropolisakkarit yapısı peptidoglikandır.",
     "learning_objective": "Bakteri hücre duvarındaki temel heteropolisakkarit yapıyı tanımak.",
     "tags": [
@@ -667,20 +578,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Peptidoglikandaki tekrar eden disakkarit birimlerinden biri N-asetilglukozamin ise diğeri N-asetil_____ asittir.",
-    "blank_answer": "Muramik",
-    "accepted_answers": [
-      "Muramik",
-      "Muramik asit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Muramik",
+      "B": "Glukuronik",
+      "C": "İduronik",
+      "D": "Galakturonik",
+      "E": "Sialik"
+    },
+    "correct_answer": "A",
+    "correct_completion": "Muramik",
     "explanation": "Peptidoglikan, beta(1→4) bağıyla bağlanan N-asetilglukozamin ve N-asetilmuramik asit kalıntılarından oluşur.",
     "learning_objective": "Peptidoglikanın tekrarlayan disakkarit bileşenlerini tanımak.",
     "tags": [
@@ -703,21 +609,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Glikozaminoglikanlar, hücre dışı matriste tekrarlayan _____ birimlerinden oluşan doğrusal heteropolisakkaritlerdir.",
-    "blank_answer": "Disakkarit",
-    "accepted_answers": [
-      "Disakkarit",
-      "Disakkarit birimleri",
-      "disakkaritler"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Monosakkarit",
+      "B": "Disakkarit",
+      "C": "Trisakkarit",
+      "D": "Oligosakkarit",
+      "E": "Heksüronat"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Disakkarit",
     "explanation": "GAG'ler, tekrar eden disakkarit birimleri içeren doğrusal heteropolisakkarit ailesi olarak tanımlanır.",
     "learning_objective": "Glikozaminoglikanların temel yapısal tekrar birimini tanımlamak.",
     "tags": [
@@ -740,20 +640,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Sülfat içermemesiyle istisna oluşturan glikozaminoglikan _____dır.",
-    "blank_answer": "Hiyaluronan",
-    "accepted_answers": [
-      "Hiyaluronan",
-      "Hyaluronan"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Dermatan sülfat",
+      "B": "Hiyaluronan",
+      "C": "Heparin",
+      "D": "Keratan sülfat",
+      "E": "Kondroitin sülfat"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Hiyaluronan",
     "explanation": "Hiyaluronan, sülfat içermeyen GAG örneği olduğu için bu grupta istisna kabul edilir.",
     "learning_objective": "Hiyaluronanı diğer glikozaminoglikanlardan ayıran istisna özelliği tanımak.",
     "tags": [
@@ -777,20 +672,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "GAG tekrar biriminde amino şekere eşlik eden ikinci monosakkarit tipi çoğunlukla bir _____ asittir.",
-    "blank_answer": "Uronik",
-    "accepted_answers": [
-      "Uronik",
-      "Uronik asit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Amino",
+      "B": "Uronik",
+      "C": "Fosforik",
+      "D": "Keto",
+      "E": "Aldonik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Uronik",
     "explanation": "Glikozaminoglikan tekrar birimlerinde amino şekere sıklıkla glukuronik veya iduronik gibi uronik asitler eşlik eder.",
     "learning_objective": "Glikozaminoglikan tekrar birimindeki temel monosakkarit eşleşmesini tanımak.",
     "tags": [
@@ -813,22 +703,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bir veya daha fazla glikozaminoglikan zinciri taşıyan makromoleküller _____ olarak adlandırılır.",
-    "blank_answer": "Proteoglikanlar",
-    "accepted_answers": [
-      "Proteoglikanlar",
-      "Proteoglikan",
-      "proteoglycan",
-      "proteoglycans"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Glikoproteinler",
+      "B": "Proteoglikanlar",
+      "C": "Lektinler",
+      "D": "Glikolipitler",
+      "E": "Disakkaritler"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Proteoglikanlar",
     "explanation": "Proteoglikanlar, hücre yüzeyi veya ECM'de yer alan ve bir ya da daha fazla GAG zinciri taşıyan makromoleküllerdir.",
     "learning_objective": "Proteoglikanları diğer glikokonjugat sınıflarından ayırmak.",
     "tags": [
@@ -852,20 +735,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Karbohidrat kısmı göreceli olarak kısa ve dallanmış olan protein konjugatları _____ sınıfına girer.",
-    "blank_answer": "Glikoprotein",
-    "accepted_answers": [
-      "Glikoprotein",
-      "Glikoproteinler"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Proteoglikan",
+      "B": "Glikoprotein",
+      "C": "Glikolipit",
+      "D": "Lektin",
+      "E": "Polisakkarit"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Glikoprotein",
     "explanation": "Glikoproteinlerde karbonhidrat kısmı proteoglikanlara göre daha kısa ve daha dallı yapıdadır.",
     "learning_objective": "Glikoproteinleri proteoglikanlardan yapı bakımından ayırt etmek.",
     "tags": [
@@ -889,22 +767,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Karbohidrat zincirinin lipide kovalent bağlandığı hücre yüzeyi bileşikleri _____ olarak adlandırılır.",
-    "blank_answer": "Glikolipitler",
-    "accepted_answers": [
-      "Glikolipitler",
-      "Glikolipit",
-      "glycolipid",
-      "glycolipids"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Proteoglikanlar",
+      "B": "Glikoproteinler",
+      "C": "Glikolipitler",
+      "D": "Lektinler",
+      "E": "Glikozaminoglikanlar"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Glikolipitler",
     "explanation": "Glikolipitler, karbohidrat zincirlerini lipit omurgasına kovalent olarak bağlayan glikokonjugat sınıfıdır.",
     "learning_objective": "Glikolipitleri diğer glikokonjugat sınıflarından ayırt etmek.",
     "tags": [
@@ -928,20 +799,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Özgül oligosakkarit dizilerini tanıyan proteinler _____ olarak adlandırılır.",
-    "blank_answer": "Lektinler",
-    "accepted_answers": [
-      "Lektinler",
-      "Lektin"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Glikozidazlar",
+      "B": "Lektinler",
+      "C": "Proteoglikanlar",
+      "D": "Sfingomiyelinler",
+      "E": "Polisakkaritler"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Lektinler",
     "explanation": "Şeker kodunu okuyan protein ailesi lektinlerdir; özgül oligosakkarit motiflerini tanırlar.",
     "learning_objective": "Şeker kodunun hücresel okuyucuları olan protein ailesini tanımak.",
     "tags": [
@@ -964,19 +830,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Hücrelerin özgül oligosakkarit düzenleriyle biyolojik bilgi kodlaması biyokimyada _____ kavramıyla açıklanır.",
-    "blank_answer": "Şeker kodu",
-    "accepted_answers": [
-      "Şeker kodu"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Mutarotasyon",
+      "B": "Şeker kodu",
+      "C": "Denatürasyon",
+      "D": "Anomerik etki",
+      "E": "Hidroliz"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Şeker kodu",
     "explanation": "Karbohidrat dizileri milyarlarca olası kombinasyonla bilgi taşıyabildiği için bu olgu şeker kodu kavramıyla açıklanır.",
     "learning_objective": "Karbohidratların bilgi molekülü olarak işlevini açıklayan temel kavramı tanımak.",
     "tags": [
@@ -1000,20 +862,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Kuvvetli asit hidrolizi sonrası monosakkarit bileşimini belirlemede kullanılan yöntemlerden biri _____ kromatografisidir.",
-    "blank_answer": "İyon değişim",
-    "accepted_answers": [
-      "İyon değişim",
-      "İyon değişim kromatografisi"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "İnce tabaka",
+      "B": "İyon değişim",
+      "C": "Afinite",
+      "D": "Jel filtrasyon",
+      "E": "Gaz-sıvı"
+    },
+    "correct_answer": "B",
+    "correct_completion": "İyon değişim",
     "explanation": "Analitik bölümde, hidroliz sonrası monosakkarit bileşiminin iyon değişim kromatografisi gibi yöntemlerle çözümlenebileceği belirtilir.",
     "learning_objective": "Karbohidrat analizi için kullanılan temel kromatografik yöntem örneklerini tanımak.",
     "tags": [
@@ -1036,20 +893,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Biyolojik lipitleri ortak bir sınıfta toplayan belirleyici fizikokimyasal özellik, suda büyük ölçüde _____ olmalarıdır.",
-    "blank_answer": "Çözünmez",
-    "accepted_answers": [
-      "Çözünmez",
-      "Çözünmez olmaları"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Çözünmez",
+      "B": "İyonik",
+      "C": "Uçucu",
+      "D": "Amfoterik",
+      "E": "Aromatik"
+    },
+    "correct_answer": "A",
+    "correct_completion": "Çözünmez",
     "explanation": "Biyolojik lipitlerin ortak ve ayırt edici özelliği suda çözünmemeleridir.",
     "learning_objective": "Lipitlerin ortak fizikokimyasal özelliğini tanımlamak.",
     "tags": [
@@ -1072,22 +924,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Yağ asidi gösteriminde X:Y notasyonundaki X değeri zincirdeki toplam _____ sayısını verir.",
-    "blank_answer": "Karbon",
-    "accepted_answers": [
-      "Karbon",
-      "Karbon sayısı",
-      "karbon atomu",
-      "karbon atomu sayısı"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Azot",
+      "B": "Fosfat",
+      "C": "Karbon",
+      "D": "Oksijen",
+      "E": "Kükürt"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Karbon",
     "explanation": "X:Y notasyonunda X, zincir uzunluğunu yani toplam karbon sayısını belirtir.",
     "learning_objective": "X:Y yağ asidi gösterimindeki temel sayıların neyi ifade ettiğini yorumlamak.",
     "tags": [
@@ -1111,21 +956,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "18:1 gösterimindeki Y değeri, zincirdeki _____ bağ sayısını belirtir.",
-    "blank_answer": "Çift",
-    "accepted_answers": [
-      "Çift",
-      "Çift bağ",
-      "cift bag sayisi"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Ester",
+      "B": "Çift",
+      "C": "Tek",
+      "D": "Amid",
+      "E": "Eter"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Çift",
     "explanation": "Y değeri, yağ asidi zincirinde bulunan karbon-karbon çift bağlarının sayısını gösterir.",
     "learning_objective": "X:Y yağ asidi gösterimindeki temel sayıların neyi ifade ettiğini yorumlamak.",
     "tags": [
@@ -1149,23 +988,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "İnsanlar için elzem kabul edilen başlıca omega-3 yağ asidi _____ asittir.",
-    "blank_answer": "Alfa-linolenik",
-    "accepted_answers": [
-      "Alfa-linolenik",
-      "Alpha-linolenik",
-      "ALA",
-      "alfa-linolenik asit",
-      "alpha-linolenik asit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Linoleik",
+      "B": "Oleik",
+      "C": "Alfa-linolenik",
+      "D": "Palmitik",
+      "E": "Araşidonik"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Alfa-linolenik",
     "explanation": "İnsan için elzem omega-3 yağ asidi olarak alfa-linolenik asit öne çıkar.",
     "learning_objective": "Elzem omega-3 yağ asitlerinden temel örneği tanımak.",
     "tags": [
@@ -1188,20 +1019,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Metil ucundan sayıldığında ilk çift bağ üçüncü karbonda ise yağ asidi _____-3 olarak sınıflanır.",
-    "blank_answer": "Omega",
-    "accepted_answers": [
-      "Omega",
-      "omega 3"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Delta",
+      "B": "Omega",
+      "C": "Alfa",
+      "D": "Beta",
+      "E": "Cis"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Omega",
     "explanation": "Omega sınıflaması, ilk çift bağın metil ucuna göre konumuna dayanır; üçüncü karbondaki ilk çift bağ omega-3 ailesini tanımlar.",
     "learning_objective": "Omega sınıflamasını metil ucuna göre yapılan sayımla ilişkilendirmek.",
     "tags": [
@@ -1224,24 +1050,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Gliserole üç yağ asidinin esterleşmesiyle oluşan en basit depo lipitleri _____ olarak adlandırılır.",
-    "blank_answer": "Triaçilgliseroller",
-    "accepted_answers": [
-      "Triaçilgliseroller",
-      "Triaçilgliserol",
-      "trigliseritler",
-      "trigliserit",
-      "triasilgliserol",
-      "triasilgliseroller"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Mumlar",
+      "B": "Triaçilgliseroller",
+      "C": "Steroller",
+      "D": "Gliserofosfolipitler",
+      "E": "Sfingolipitler"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Triaçilgliseroller",
     "explanation": "Yağ asitlerinden oluşan en basit lipitler triaçilgliseroller olarak adlandırılır.",
     "learning_objective": "Triaçilgliserolleri temel depo lipidi olarak tanımlamak.",
     "tags": [
@@ -1264,21 +1081,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Üç yağ asidinin de aynı olduğu triaçilgliseroller biyokimyada _____ triaçilgliserol olarak adlandırılır.",
-    "blank_answer": "Basit",
-    "accepted_answers": [
-      "Basit",
-      "Basit triaçilgliserol",
-      "basit triaçilgliseroller"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Karışık",
+      "B": "Basit",
+      "C": "Amfipatik",
+      "D": "Siklik",
+      "E": "Dallanmış"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Basit",
     "explanation": "Aynı yağ asitlerinden oluşan moleküller basit triaçilgliserol sınıfına girer.",
     "learning_objective": "Basit ve karışık triaçilgliserolleri içeriklerine göre ayırt etmek.",
     "tags": [
@@ -1302,19 +1113,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Gliserolün üç palmitatla esterleşmesi sonucu oluşan basit triaçilgliserol örneği _____dir.",
-    "blank_answer": "Tripalmitin",
-    "accepted_answers": [
-      "Tripalmitin"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Tristearin",
+      "B": "Triolein",
+      "C": "Tripalmitin",
+      "D": "Fosfatidilkolin",
+      "E": "Seramid"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Tripalmitin",
     "explanation": "Üç palmitik asit içeren basit triaçilgliserol için tipik örnek tripalmitindir.",
     "learning_objective": "Triaçilgliserol adlandırmasında yağ asidi bileşiminin nasıl kullanıldığını tanımak.",
     "tags": [
@@ -1338,22 +1145,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bitkisel yağların kısmi hidrojenlenmesi, cis çift bağların bir kısmını _____ yapıya dönüştürebilir.",
-    "blank_answer": "Trans",
-    "accepted_answers": [
-      "Trans",
-      "trans forma",
-      "trans yapı",
-      "trans yağ"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Cis",
+      "B": "Trans",
+      "C": "Satüre",
+      "D": "Omega",
+      "E": "Konjuge"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Trans",
     "explanation": "Kısmi hidrojenleme işlemi sırasında bazı cis çift bağlar trans konfigürasyona izomerleşebilir.",
     "learning_objective": "Kısmi hidrojenlemenin trans yağ oluşumuyla ilişkisini açıklamak.",
     "tags": [
@@ -1376,21 +1176,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Kısmi hidrojenlemenin teknoloji açısından tercih edilmesinin başlıca nedeni, yağların oksidasyona bağlı _____ riskini azaltmaktır.",
-    "blank_answer": "Bozulma",
-    "accepted_answers": [
-      "Bozulma",
-      "bozulma riski",
-      "acima"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Esterleşme",
+      "B": "Emülsiyon",
+      "C": "Bozulma",
+      "D": "Sülfatlanma",
+      "E": "İzomerleşme"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Bozulma",
     "explanation": "Çift bağların kırılmasına bağlı oksidatif bozulma raf ömrü sorununa yol açar; hidrojenleme bu riski azaltmak için uygulanır.",
     "learning_objective": "Kısmi hidrojenlemenin neden uygulandığını oksidatif bozulma bağlamında yorumlamak.",
     "tags": [
@@ -1413,22 +1207,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Uzun zincirli bir yağ asidinin uzun zincirli bir alkolle esterinden oluşan koruyucu lipitler _____ olarak adlandırılır.",
-    "blank_answer": "Mumlar",
-    "accepted_answers": [
-      "Mumlar",
-      "Mum",
-      "wax",
-      "waxes"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Mumlar",
+      "B": "Triaçilgliseroller",
+      "C": "Steroller",
+      "D": "Sfingolipitler",
+      "E": "Gliserofosfolipitler"
+    },
+    "correct_answer": "A",
+    "correct_completion": "Mumlar",
     "explanation": "Mumlar, uzun zincirli asit ve alkollerin esterlerinden oluşan koruyucu yüzey lipitleridir.",
     "learning_objective": "Mumları yapı bakımından diğer depo lipitlerinden ayırt etmek.",
     "tags": [
@@ -1451,21 +1238,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Zar lipitlerinin suyla ve birbirleriyle etkileşerek çift tabaka oluşturabilmesinin temel nedeni bu moleküllerin _____ karakter taşımasıdır.",
-    "blank_answer": "Amfipatik",
-    "accepted_answers": [
-      "Amfipatik",
-      "amfipatik karakter",
-      "amfipatik yapı"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Hidrofobik",
+      "B": "Amfipatik",
+      "C": "Kovalent",
+      "D": "Aromatik",
+      "E": "Polimerik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Amfipatik",
     "explanation": "Hidrofilik baş ve hidrofobik kuyruk içeren amfipatik yapı, zar çift tabakasının spontan oluşumunu mümkün kılar.",
     "learning_objective": "Yapısal zar lipitlerinin çift tabaka oluşturma mantığını açıklamak.",
     "tags": [
@@ -1488,20 +1269,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Gliserofosfolipitlerin temel iskeleti olan fosforillenmiş ara bileşik _____ asittir.",
-    "blank_answer": "Fosfatidik",
-    "accepted_answers": [
-      "Fosfatidik",
-      "Fosfatidik asit"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Palmitik",
+      "B": "Fosfatidik",
+      "C": "Gliserik",
+      "D": "Oleik",
+      "E": "Propiyonik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Fosfatidik",
     "explanation": "Gliserofosfolipitlerin ana bileşiği fosfatidik asittir.",
     "learning_objective": "Gliserofosfolipitleri omurga bileşeni üzerinden tanımlamak.",
     "tags": [
@@ -1525,22 +1301,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Gliserofosfolipitlerde sınıf adlandırması çoğunlukla fosfat grubuna bağlı _____ göre yapılır.",
-    "blank_answer": "Polar alkole",
-    "accepted_answers": [
-      "Polar alkole",
-      "polar alkol",
-      "baş grup",
-      "polar baş gruba"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Yağ asidine",
+      "B": "Polar alkole",
+      "C": "Sterol çekirdeğine",
+      "D": "Eter bağına",
+      "E": "İzopren zincirine"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Polar alkole",
     "explanation": "Adlandırma, fosfat grubuna bağlı polar alkol ya da baş grubun kimliğine göre kurulur.",
     "learning_objective": "Gliserofosfolipit sınıflarını baş grup mantığı üzerinden ayırt etmek.",
     "tags": [
@@ -1563,22 +1332,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bitki kloroplast zarlarında baskın olup bir veya iki galaktoz taşıyan yapısal lipitler _____ olarak adlandırılır.",
-    "blank_answer": "Galaktolipitler",
-    "accepted_answers": [
-      "Galaktolipitler",
-      "Galaktolipit",
-      "galactolipids",
-      "galactolipid"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Sfingomiyelinler",
+      "B": "Galaktolipitler",
+      "C": "Steroller",
+      "D": "Mumlar",
+      "E": "Plazmalojenler"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Galaktolipitler",
     "explanation": "Kloroplast zarlarında galaktoz taşıyan yapısal lipit sınıfı galaktolipitlerdir.",
     "learning_objective": "Bitkisel zar lipitleri içinde galaktolipitleri tanımak.",
     "tags": [
@@ -1601,20 +1363,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Arkelerde ekstrem koşullara dayanıklılığı artıran temel bağ tipi _____ bağıdır.",
-    "blank_answer": "Eter",
-    "accepted_answers": [
-      "Eter",
-      "eter bağı"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Amid",
+      "B": "Ester",
+      "C": "Eter",
+      "D": "Peptit",
+      "E": "Disülfit"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Eter",
     "explanation": "Arke zar lipitlerinde ester yerine eter bağları bulunur; bu durum kimyasal dayanıklılığı artırır.",
     "learning_objective": "Arke zar lipitlerini bağ tipi üzerinden diğer zar lipitlerinden ayırmak.",
     "tags": [
@@ -1638,22 +1395,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Arke zar lipitlerinde eter bağlarının tercih edilmesi, bu bağların hidrolize karşı daha _____ olmasına katkı sağlar.",
-    "blank_answer": "Dayanıklı",
-    "accepted_answers": [
-      "Dayanıklı",
-      "Dirençli",
-      "daha dayanıklı",
-      "daha dirençli"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Polar",
+      "B": "Dayanıklı",
+      "C": "Dallanmış",
+      "D": "İndirgen",
+      "E": "Esnek"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Dayanıklı",
     "explanation": "Eter bağları, ekstrem koşullarda hidrolize karşı daha dirençlidir.",
     "learning_objective": "Arke zar lipitlerindeki eter bağlarının biyokimyasal sonucunu açıklamak.",
     "tags": [
@@ -1677,19 +1427,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Sfingolipitlerin karakteristik amino alkol omurgası _____ olarak adlandırılır.",
-    "blank_answer": "Sfingozin",
-    "accepted_answers": [
-      "Sfingozin"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Kolesterol",
+      "B": "Gliserol",
+      "C": "Sfingozin",
+      "D": "Etanolamin",
+      "E": "Skualen"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Sfingozin",
     "explanation": "Sfingolipitler, gliserol yerine sfingozin omurgası taşıyan zar lipitleridir.",
     "learning_objective": "Sfingolipitleri omurga yapısı üzerinden tanımak.",
     "tags": [
@@ -1712,21 +1458,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bir yağ asidinin sfingozine amid bağıyla bağlanmasıyla oluşan çekirdek yapı _____dir.",
-    "blank_answer": "Seramid",
-    "accepted_answers": [
-      "Seramid",
-      "Ceramide",
-      "ceramid"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Sfingomiyelin",
+      "B": "Seramid",
+      "C": "Kolesterol",
+      "D": "Plazmalojen",
+      "E": "Fosfatidat"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Seramid",
     "explanation": "Seramid, sfingozin ile yağ asidinin amid bağı kurduğu temel sfingolipit çekirdeğidir.",
     "learning_objective": "Sfingolipit çekirdeğini oluşturan temel ara yapıyı tanımak.",
     "tags": [
@@ -1749,20 +1489,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Sterollerin ortak yapısal çekirdeği, kaynaşmış dört halkadan oluşan _____ çekirdektir.",
-    "blank_answer": "Steroid",
-    "accepted_answers": [
-      "Steroid",
-      "steroid çekirdek"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Steroid",
+      "B": "Porfirin",
+      "C": "İzopren",
+      "D": "Gliserol",
+      "E": "Pentoz"
+    },
+    "correct_answer": "A",
+    "correct_completion": "Steroid",
     "explanation": "Steroller, üçü altı üyeli biri beş üyeli dört kaynaşmış halkadan oluşan steroid çekirdeği taşır.",
     "learning_objective": "Sterollerin ortak yapısal çekirdeğini tanımlamak.",
     "tags": [
@@ -1786,19 +1521,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Hayvan dokularında en önemli sterol örneği _____dür.",
-    "blank_answer": "Kolesterol",
-    "accepted_answers": [
-      "Kolesterol"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Kolesterol",
+      "B": "Ergosterol",
+      "C": "Lanosterol",
+      "D": "β-sitosterol",
+      "E": "Dolikol"
+    },
+    "correct_answer": "A",
+    "correct_completion": "Kolesterol",
     "explanation": "Hayvansal dokulardaki en önemli sterol kolesteroldür.",
     "learning_objective": "Steroller arasında hayvanlarda baskın örneği tanımak.",
     "tags": [
@@ -1822,22 +1553,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Yakındaki hücrelere mesaj taşıyan eikosanoit sınıfları arasında prostaglandinler, tromboksanlar ve _____ler yer alır.",
-    "blank_answer": "Lökotrien",
-    "accepted_answers": [
-      "Lökotrien",
-      "Lökotrienler",
-      "leukotrien",
-      "leukotrienler"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Lipoksin",
+      "B": "Lökotrien",
+      "C": "Prostasiklin",
+      "D": "Seramid",
+      "E": "Sterol"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Lökotrien",
     "explanation": "Eikosanoitlerin üç ana sınıfı prostaglandinler, tromboksanlar ve lökotrienlerdir.",
     "learning_objective": "Eikosanoid sınıflarını temel örnekleriyle tanımak.",
     "tags": [
@@ -1861,21 +1585,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Mitokondriyal elektron aktarımında görev yapan lipit türevli kinon taşıyıcı _____ olarak bilinir.",
-    "blank_answer": "Ubikinon",
-    "accepted_answers": [
-      "Ubikinon",
-      "Koenzim Q",
-      "coenzyme q"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Retinal",
+      "B": "Dolikol",
+      "C": "Ubikinon",
+      "D": "Skualen",
+      "E": "Lanosterol"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Ubikinon",
     "explanation": "Ubikinon, lipit türevli kinon yapısıyla elektron taşıyan hareketli mitokondriyal bileşiktir.",
     "learning_objective": "Lipit türevli kinonların biyokimyasal işlevine temel örnek vermek.",
     "tags": [
@@ -1899,21 +1617,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Hücresel enerji aktarımında merkezde yer alan temel nükleotid _____dir.",
-    "blank_answer": "ATP",
-    "accepted_answers": [
-      "ATP",
-      "Adenozin trifosfat",
-      "adenosine triphosphate"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "ATP",
+      "B": "GTP",
+      "C": "CTP",
+      "D": "NAD",
+      "E": "cAMP"
+    },
+    "correct_answer": "A",
+    "correct_completion": "ATP",
     "explanation": "Nükleotidlerin temel işlevleri anlatılırken enerji aktarımının en tipik örneği olarak ATP verilir.",
     "learning_objective": "Nükleotidlerin enerji aktarımındaki temel örneğini tanımak.",
     "tags": [
@@ -1936,21 +1648,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Adenin ve guanin yapısal olarak _____ baz sınıfına girer.",
-    "blank_answer": "Pürin",
-    "accepted_answers": [
-      "Pürin",
-      "pürin bazları",
-      "purine"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Pirimidin",
+      "B": "Pürin",
+      "C": "Nükleozit",
+      "D": "İmidazol",
+      "E": "Piridin"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Pürin",
     "explanation": "Azotlu bazlar iki ana sınıfa ayrılır; adenin ve guanin pürin türevleridir.",
     "learning_objective": "Pürin ve pirimidin sınıflamasını baz örnekleri üzerinden kurmak.",
     "tags": [
@@ -1973,21 +1679,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "DNA'nın tekrarlayan birimlerinde bulunan pentoz şekeri 2'-_____ -D-ribozdur.",
-    "blank_answer": "Deoksi",
-    "accepted_answers": [
-      "Deoksi",
-      "deoksi-D-riboz",
-      "2-deoksi"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Amino",
+      "B": "Deoksi",
+      "C": "Uronik",
+      "D": "Fosfo",
+      "E": "Dehidro"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Deoksi",
     "explanation": "DNA'daki pentoz 2'-deoksi-D-ribozdur; RNA'daki karşılığı ise D-ribozdur.",
     "learning_objective": "DNA ve RNA'daki pentozları birbirinden ayırt etmek.",
     "tags": [
@@ -2010,22 +1710,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Ardışık nükleotidleri omurgada birbirine bağlayan bağlantı _____ bağıdır.",
-    "blank_answer": "Fosfodiester",
-    "accepted_answers": [
-      "Fosfodiester",
-      "Fosfodiester bağı",
-      "phosphodiester",
-      "phosphodiester bond"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Peptit",
+      "B": "Fosfodiester",
+      "C": "Glikozit",
+      "D": "Ester",
+      "E": "Disülfit"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Fosfodiester",
     "explanation": "Nükleik asit omurgası, komşu nükleotidleri birbirine bağlayan fosfodiester bağlarıyla kurulur.",
     "learning_objective": "Nükleik asit omurgasını oluşturan bağ tipini tanımak.",
     "tags": [
@@ -2049,21 +1742,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Nükleik asit zincirlerinin biyokimyasal yönlülüğü standart olarak _____ yönünde ifade edilir.",
-    "blank_answer": "5'ten 3'e",
-    "accepted_answers": [
-      "5'ten 3'e",
-      "5' 3'",
-      "5 ten 3"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "3'ten 5'e",
+      "B": "5'ten 3'e",
+      "C": "2'den 4'e",
+      "D": "1'den 6'ya",
+      "E": "N'den C'ye"
+    },
+    "correct_answer": "B",
+    "correct_completion": "5'ten 3'e",
     "explanation": "5' ve 3' uçlar fosfodiester bağını değil zincirin uçlarını ifade eder; zincir yönlülüğü 5'ten 3'e yazılır.",
     "learning_objective": "Nükleik asit yönlülüğünü uç adlandırmasıyla ilişkilendirmek.",
     "tags": [
@@ -2087,21 +1774,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "DNA çift sarmalında aromatik bazların eksene dik biçimde üst üste dizilmesi _____ olarak adlandırılır.",
-    "blank_answer": "Baz istiflenmesi",
-    "accepted_answers": [
-      "Baz istiflenmesi",
-      "baz istiflenme",
-      "base stacking"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Komplementasyon",
+      "B": "Baz istiflenmesi",
+      "C": "Denatürasyon",
+      "D": "Hidroliz",
+      "E": "Metilasyon"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Baz istiflenmesi",
     "explanation": "Baz istiflenmesi, düzlemsel baz halkalarının çift sarmalın içinde istiflenerek yapısal kararlılığa katkı vermesidir.",
     "learning_objective": "Baz özelliklerinin DNA'nın üç boyutlu yapısına katkısını açıklamak.",
     "tags": [
@@ -2125,20 +1806,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Çift sarmallı DNA'da adenin miktarının timine, guaninin sitozine eşit olduğunu ifade eden nicel ilişki _____ kuralı olarak bilinir.",
-    "blank_answer": "Chargaff",
-    "accepted_answers": [
-      "Chargaff",
-      "Chargaff kuralı"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Watson-Crick",
+      "B": "Avery",
+      "C": "Chargaff",
+      "D": "Pauling",
+      "E": "Miescher"
+    },
+    "correct_answer": "C",
+    "correct_completion": "Chargaff",
     "explanation": "A=T ve G=C oranları, Chargaff'ın DNA baz bileşimi üzerine ortaya koyduğu temel ilişkidir.",
     "learning_objective": "Chargaff kurallarını çift sarmal DNA ile ilişkilendirmek.",
     "tags": [
@@ -2162,21 +1838,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "A=T ve G=C oranlarından çıkarılan ana sonuç, DNA zincirlerinin _____ baz eşleşmesiyle bir arada tutulduğudur.",
-    "blank_answer": "Tamamlayıcı",
-    "accepted_answers": [
-      "Tamamlayıcı",
-      "tamamlayıcı baz eşleşmesi",
-      "complementary"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Paralel",
+      "B": "Tamamlayıcı",
+      "C": "İyonik",
+      "D": "Kovalent",
+      "E": "Hidrofobik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Tamamlayıcı",
     "explanation": "Baz oranlarının eşitliği, iki zincirin tamamlayıcı baz eşleşmesi mantığıyla düzenlendiğini destekler.",
     "learning_objective": "Chargaff oranlarının tamamlayıcı baz eşleşmesi sonucunu nasıl desteklediğini açıklamak.",
     "tags": [
@@ -2200,21 +1870,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Watson-Crick modeline göre DNA'nın iki zinciri birbirine göre _____ düzenlenmiştir.",
-    "blank_answer": "Antiparalel",
-    "accepted_answers": [
-      "Antiparalel",
-      "antiparalel dizilim",
-      "antiparallel"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Koaksiyel",
+      "B": "Antiparalel",
+      "C": "Paralel",
+      "D": "Radyal",
+      "E": "İzotropik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Antiparalel",
     "explanation": "DNA çift sarmalında zincirler zıt yönlülükte ilerler; bu ilişki antiparalellik olarak adlandırılır.",
     "learning_objective": "Watson-Crick modelinde DNA zincirlerinin birbirine göre konumunu tanımlamak.",
     "tags": [
@@ -2238,22 +1902,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Watson-Crick modelinde hidrofobik baz halkaları çift sarmalın _____ kısmında istiflenir.",
-    "blank_answer": "İç",
-    "accepted_answers": [
-      "İç",
-      "iç kısmında",
-      "ic kisimda",
-      "içinde"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Dış",
+      "B": "Majör",
+      "C": "İç",
+      "D": "Minör",
+      "E": "Uç"
+    },
+    "correct_answer": "C",
+    "correct_completion": "İç",
     "explanation": "Pürin ve pirimidin halkaları hidrofobik yapıları nedeniyle çift sarmalın içinde istiflenir; şeker-fosfat omurgası dıştadır.",
     "learning_objective": "Watson-Crick modelinde bazların uzaysal yerleşimini açıklamak.",
     "tags": [
@@ -2277,21 +1934,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Polipeptit dizisini doğrudan şifreleyen RNA türü _____dır.",
-    "blank_answer": "mRNA",
-    "accepted_answers": [
-      "mRNA",
-      "mesajcı RNA",
-      "messenger RNA"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "tRNA",
+      "B": "rRNA",
+      "C": "mRNA",
+      "D": "snRNA",
+      "E": "miRNA"
+    },
+    "correct_answer": "C",
+    "correct_completion": "mRNA",
     "explanation": "Mesajcı RNA, genetik bilginin protein dizisine çevrilmesinde doğrudan şablon görevi görür.",
     "learning_objective": "mRNA'nın diğer RNA türleri içindeki işlevini tanımlamak.",
     "tags": [
@@ -2314,21 +1965,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Ökaryotlarda çoğu mesajcı RNA, tek bir polipeptidi kodladığı için _____ olarak tanımlanır.",
-    "blank_answer": "Monosistronik",
-    "accepted_answers": [
-      "Monosistronik",
-      "monocistronic",
-      "mono-sistronik"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Halkasal",
+      "B": "Monosistronik",
+      "C": "Polisistronik",
+      "D": "Antiparalel",
+      "E": "Çift iplikli"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Monosistronik",
     "explanation": "Ökaryotik mRNA çoğunlukla bir tek polipeptit zinciri için bilgi taşıdığı için monosistronik kabul edilir.",
     "learning_objective": "Ökaryotik mRNA'nın organizasyon mantığını tanımlamak.",
     "tags": [
@@ -2352,19 +1997,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Çift sarmal DNA'nın ısı veya pH etkisiyle zincirlerine ayrılmasına _____ denir.",
-    "blank_answer": "Denatürasyon",
-    "accepted_answers": [
-      "Denatürasyon"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Hibritleşme",
+      "B": "Denatürasyon",
+      "C": "Renatürasyon",
+      "D": "Ligasyon",
+      "E": "Metilasyon"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Denatürasyon",
     "explanation": "Denatürasyon, baz eşleşmeleri ve istiflenmenin bozulmasıyla çift sarmalın açılmasıdır.",
     "learning_objective": "Nükleik asit denatürasyonunu çift sarmalın çözülmesiyle ilişkilendirmek.",
     "tags": [
@@ -2387,21 +2028,15 @@
     ],
     "difficulty": "Kolay",
     "prompt_text": "Ayrılmış iki tamamlayıcı zincirin yeniden çift sarmal oluşturmasına _____ denir.",
-    "blank_answer": "Renatürasyon",
-    "accepted_answers": [
-      "Renatürasyon",
-      "tavlama",
-      "annealing"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Alkilasyon",
+      "B": "Renatürasyon",
+      "C": "Denatürasyon",
+      "D": "Deaminasyon",
+      "E": "Ligasyon"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Renatürasyon",
     "explanation": "Renatürasyon, tamamlayıcı zincirlerin uygun koşullar geri geldiğinde yeniden eşleşmesidir.",
     "learning_objective": "Tamamlayıcı zincirlerin yeniden eşleşmesini renatürasyon kavramıyla açıklamak.",
     "tags": [
@@ -2424,22 +2059,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Bir DNA örneğinin yarısının denatüre olduğu sıcaklık _____ ile gösterilir.",
-    "blank_answer": "Tm",
-    "accepted_answers": [
-      "Tm",
-      "T_m",
-      "erime noktası",
-      "erime sicakligi"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "pKa",
+      "B": "Tm",
+      "C": "Km",
+      "D": "Vmax",
+      "E": "Delta G"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Tm",
     "explanation": "Tm, DNA parçasının yarısının çözülmüş durumda olduğu sıcaklığı ifade eder.",
     "learning_objective": "DNA erime sıcaklığını Tm kavramıyla tanımlamak.",
     "tags": [
@@ -2463,21 +2091,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Nükleik asitlerde dizi benzerliğini tamamlayıcı baz eşleşmesi üzerinden sınayan süreç _____ olarak adlandırılır.",
-    "blank_answer": "Hibritleşme",
-    "accepted_answers": [
-      "Hibritleşme",
-      "hybridization",
-      "hibridizasyon"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Replikasyon",
+      "B": "Hibritleşme",
+      "C": "Transkripsiyon",
+      "D": "Ligasyon",
+      "E": "Fosforilasyon"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Hibritleşme",
     "explanation": "Hibritleşme, tamamlayıcı nükleik asit dizilerinin birbirini tanıyıp eşleşmesine dayanır.",
     "learning_objective": "Hibritleşmeyi tamamlayıcı baz eşleşmesi ve dizi benzerliğiyle ilişkilendirmek.",
     "tags": [
@@ -2500,20 +2122,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Sitozinin spontan deaminasyonu sonucu oluşan baz _____dir.",
-    "blank_answer": "Urasil",
-    "accepted_answers": [
-      "Urasil",
-      "Uracil"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Timin",
+      "B": "Urasil",
+      "C": "Sitozin",
+      "D": "Adenin",
+      "E": "Hipoksantin"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Urasil",
     "explanation": "Deaminasyon sonucunda sitozin amino grubunu kaybeder ve urasile dönüşür.",
     "learning_objective": "Spontan deaminasyonun baz düzeyindeki sonucunu tanımak.",
     "tags": [
@@ -2537,21 +2154,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Azotlu bazın hidrolitik olarak kaybedilmesiyle oluşan abazik DNA bölgesi kısaca _____ lezyonu olarak anılır.",
-    "blank_answer": "AP",
-    "accepted_answers": [
-      "AP",
-      "abazik",
-      "abazik bölge"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "ROS",
+      "B": "AP",
+      "C": "Tm",
+      "D": "NAD",
+      "E": "GTP"
+    },
+    "correct_answer": "B",
+    "correct_completion": "AP",
     "explanation": "AP lezyonu, apürinik/apirimidin yani bazını kaybetmiş abazik DNA bölgesini ifade eder.",
     "learning_objective": "Baz kaybı sonrası oluşan abazik bölgeyi AP lezyonu kavramıyla ilişkilendirmek.",
     "tags": [
@@ -2574,21 +2185,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "UV ışınlarının DNA'da oluşturduğu tipik lezyon _____ dimeridir.",
-    "blank_answer": "Pirimidin",
-    "accepted_answers": [
-      "Pirimidin",
-      "pirimidin dimeri",
-      "pyrimidine dimer"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Pürin",
+      "B": "Pirimidin",
+      "C": "Adenin",
+      "D": "Guanin",
+      "E": "Riboz"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Pirimidin",
     "explanation": "UV ışınları bakteri ve insan DNA'sında tipik olarak pirimidin dimerleri oluşturur.",
     "learning_objective": "UV hasarının DNA'daki tipik lezyonunu tanımak.",
     "tags": [
@@ -2611,20 +2216,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "DNA'daki mutajenik değişimlerin en önemli iç kaynaklarından biri _____ hasardır.",
-    "blank_answer": "Oksidatif",
-    "accepted_answers": [
-      "Oksidatif",
-      "oksidatif hasar"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "Hidrolitik",
+      "B": "Oksidatif",
+      "C": "Alkalik",
+      "D": "İzotonik",
+      "E": "Anabolik"
+    },
+    "correct_answer": "B",
+    "correct_completion": "Oksidatif",
     "explanation": "DNA'daki mutajenik değişimlerin en önemli kaynaklarından biri oksidatif hasardır.",
     "learning_objective": "Nükleik asit hasarında oksidatif süreçlerin önemini tanımak.",
     "tags": [
@@ -2648,21 +2248,15 @@
     ],
     "difficulty": "Zor",
     "prompt_text": "Hidroksil radikali, süperoksit ve H2O2 gibi uyarılmış oksijen kaynaklı bileşikler topluca _____ olarak anılır.",
-    "blank_answer": "ROS",
-    "accepted_answers": [
-      "ROS",
-      "reaktif oksijen türleri",
-      "reactive oxygen species"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "RNS",
+      "B": "ROS",
+      "C": "ATP",
+      "D": "GTP",
+      "E": "NAD"
+    },
+    "correct_answer": "B",
+    "correct_completion": "ROS",
     "explanation": "Bu reaktif oksijen türleri DNA dahil çok sayıda biyomolekülde oksidatif hasar oluşturabilir.",
     "learning_objective": "Oksidatif DNA hasarıyla ilişkili reaktif oksijen türlerini ortak başlık altında tanımak.",
     "tags": [
@@ -2685,21 +2279,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Protein sentezi gibi enerji gerektiren süreçlerde ATP'ye ek olarak sık kullanılan guanin nükleotidi _____dir.",
-    "blank_answer": "GTP",
-    "accepted_answers": [
-      "GTP",
-      "guanozin trifosfat",
-      "guanosine triphosphate"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "CTP",
+      "B": "GTP",
+      "C": "UTP",
+      "D": "cAMP",
+      "E": "NADH"
+    },
+    "correct_answer": "B",
+    "correct_completion": "GTP",
     "explanation": "GTP, ATP dışında enerji aktarımında görev yapan önemli bir nükleotiddir.",
     "learning_objective": "Enerji aktarımında ATP dışındaki temel nükleotid örneğini tanımak.",
     "tags": [
@@ -2723,21 +2311,15 @@
     ],
     "difficulty": "Orta",
     "prompt_text": "Elektron taşınmasına katılan nükleotid türevli kofaktörlerden nikotinamid adenin dinükleotid kısaca _____ olarak yazılır.",
-    "blank_answer": "NAD",
-    "accepted_answers": [
-      "NAD",
-      "nikotinamid adenin dinükleotid",
-      "nicotinamide adenine dinucleotide"
-    ],
-    "case_sensitive": false,
-    "normalization_rules": [
-      "trim",
-      "collapse_whitespace",
-      "case_fold",
-      "turkish_fold",
-      "apostrophe_fold",
-      "separator_fold"
-    ],
+    "options": {
+      "A": "FAD",
+      "B": "NAD",
+      "C": "SAM",
+      "D": "CoA",
+      "E": "cAMP"
+    },
+    "correct_answer": "B",
+    "correct_completion": "NAD",
     "explanation": "NAD, adenin nükleotidlerini içeren kofaktörler arasında en temel örneklerden biridir.",
     "learning_objective": "Nükleotid türevli kofaktörlere temel örnek vermek.",
     "tags": [

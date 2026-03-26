@@ -5,8 +5,8 @@ import {
   buildFillBlankReviewQueue,
   detectFillBlankExactDuplicates,
   detectFillBlankNearDuplicates,
-  findFillBlankAcceptedAnswerIssues,
-  findFillBlankBannedTermHits
+  findFillBlankBannedTermHits,
+  findFillBlankOptionQualityIssues
 } from "./lib/fill-blank-bank.mjs";
 import {
   buildSubtopicCoverage,
@@ -93,13 +93,15 @@ function validateFillBlankSchema(entries) {
     "source_pdf",
     "source_topic",
     "source_subtopic",
+    "source_pages",
     "difficulty",
     "prompt_text",
-    "blank_answer",
-    "accepted_answers",
-    "normalization_rules",
+    "options",
+    "correct_answer",
+    "correct_completion",
     "explanation",
-    "learning_objective"
+    "learning_objective",
+    "tags"
   ];
 
   const ids = new Set();
@@ -129,6 +131,23 @@ function validateFillBlankSchema(entries) {
 
     if (entry.exam_scope !== "midterm") {
       fieldErrors.push(`${entry.id}: exam_scope midterm değil`);
+    }
+
+    const optionKeys = Object.keys(entry.options || {});
+    if (optionKeys.length !== 5 || !LETTERS.every((key) => optionKeys.includes(key))) {
+      fieldErrors.push(`${entry.id}: fill-blank seçenek yapısı 5 şıklı değil`);
+    }
+
+    if (!entry.options?.[entry.correct_answer]) {
+      fieldErrors.push(`${entry.id}: fill-blank doğru cevap seçeneklerde yok`);
+    }
+
+    if (entry.options?.[entry.correct_answer] !== entry.correct_completion) {
+      fieldErrors.push(`${entry.id}: correct_completion doğru seçenekle eşleşmiyor`);
+    }
+
+    if (!/_{3,}/.test(entry.prompt_text || "")) {
+      fieldErrors.push(`${entry.id}: prompt_text görünür boşluk içermiyor`);
     }
   }
 
@@ -194,10 +213,10 @@ function qualityMarkdown(summary) {
     `- Fill-in-the-blank near-duplicate: ${
       summary.fill_blank_near_duplicate_count === 0 ? "Yok" : `${summary.fill_blank_near_duplicate_count} çift`
     }`,
-    `- Fill-in-the-blank accepted answer issue: ${
-      summary.fill_blank_accepted_answer_issue_count === 0
+    `- Fill-in-the-blank option quality issue: ${
+      summary.fill_blank_option_quality_issue_count === 0
         ? "Temiz"
-        : `${summary.fill_blank_accepted_answer_issue_count} kayıt`
+        : `${summary.fill_blank_option_quality_issue_count} kayıt`
     }`,
     "",
     "## Konu başına soru dağılımı",
@@ -229,6 +248,14 @@ function qualityMarkdown(summary) {
 
   if (summary.fill_blank_field_errors.length) {
     lines.push("", "## Fill-in-the-Blank Şema Hataları", ...summary.fill_blank_field_errors.map((item) => `- ${item}`));
+  }
+
+  if (summary.fill_blank_option_quality_issue_details.length) {
+    lines.push(
+      "",
+      "## Fill-in-the-Blank Option Quality Bulguları",
+      ...summary.fill_blank_option_quality_issue_details.map((item) => `- ${item.id}: ${item.issues.join("; ")}`)
+    );
   }
 
   if (summary.artifact_sync_findings.length) {
@@ -289,7 +316,7 @@ export async function validate() {
   const fillBlankExactDuplicatePairs = detectFillBlankExactDuplicates(fillBlankQuestions);
   const fillBlankNearDuplicatePairs = detectFillBlankNearDuplicates(fillBlankQuestions);
   const fillBlankBannedHitDetails = findFillBlankBannedTermHits(fillBlankQuestions);
-  const fillBlankAcceptedAnswerIssueDetails = findFillBlankAcceptedAnswerIssues(fillBlankQuestions);
+  const fillBlankOptionQualityIssueDetails = findFillBlankOptionQualityIssues(fillBlankQuestions);
   const optionBalanceFlagDetails = findOptionBalanceFlags(allQuestions);
   const subtopicCoverage = buildSubtopicCoverage(allQuestions);
   const uncoveredCurriculum = subtopicCoverage.filter((entry) => entry.actualCount < entry.requiredMinimum);
@@ -350,8 +377,8 @@ export async function validate() {
     fill_blank_exact_duplicate_pairs: fillBlankExactDuplicatePairs,
     fill_blank_near_duplicate_count: fillBlankNearDuplicatePairs.length,
     fill_blank_near_duplicate_pairs: fillBlankNearDuplicatePairs,
-    fill_blank_accepted_answer_issue_count: fillBlankAcceptedAnswerIssueDetails.length,
-    fill_blank_accepted_answer_issue_details: fillBlankAcceptedAnswerIssueDetails,
+    fill_blank_option_quality_issue_count: fillBlankOptionQualityIssueDetails.length,
+    fill_blank_option_quality_issue_details: fillBlankOptionQualityIssueDetails,
     placeholder_file_findings: placeholderFileFindings,
     topicTotals: topicDistribution(allQuestions),
     subtopic_coverage: subtopicCoverage,

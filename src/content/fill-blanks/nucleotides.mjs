@@ -1,4 +1,4 @@
-import { makeFillBlank } from "./helpers.mjs";
+import { makeFillBlank, optionSet } from "./helpers.mjs";
 
 const sourcePdf = "Nükleotidler Ve Nükleik Asitler.pdf";
 const sourceTopic = "Nükleotidler ve nükleik asitler";
@@ -18,8 +18,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Hücresel enerji aktarımında merkezde yer alan temel nükleotid _____dir.",
-    blankAnswer: "ATP",
-    acceptedAnswers: ["Adenozin trifosfat", "adenosine triphosphate"],
+    options: optionSet("ATP", "GTP", "CTP", "NAD", "cAMP"),
+    correctCompletion: "ATP",
     explanation:
       "Nükleotidlerin temel işlevleri anlatılırken enerji aktarımının en tipik örneği olarak ATP verilir.",
     learningObjective:
@@ -33,8 +33,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Adenin ve guanin yapısal olarak _____ baz sınıfına girer.",
-    blankAnswer: "Pürin",
-    acceptedAnswers: ["Purin", "pürin bazları", "purine"],
+    options: optionSet("Pirimidin", "Pürin", "Nükleozit", "İmidazol", "Piridin"),
+    correctCompletion: "Pürin",
     explanation:
       "Azotlu bazlar iki ana sınıfa ayrılır; adenin ve guanin pürin türevleridir.",
     learningObjective:
@@ -48,8 +48,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "DNA'nın tekrarlayan birimlerinde bulunan pentoz şekeri 2'-_____ -D-ribozdur.",
-    blankAnswer: "Deoksi",
-    acceptedAnswers: ["deoksi", "deoksi-D-riboz", "2-deoksi", "2'-deoksi"],
+    options: optionSet("Amino", "Deoksi", "Uronik", "Fosfo", "Dehidro"),
+    correctCompletion: "Deoksi",
     explanation:
       "DNA'daki pentoz 2'-deoksi-D-ribozdur; RNA'daki karşılığı ise D-ribozdur.",
     learningObjective:
@@ -63,8 +63,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Ardışık nükleotidleri omurgada birbirine bağlayan bağlantı _____ bağıdır.",
-    blankAnswer: "Fosfodiester",
-    acceptedAnswers: ["Fosfodiester bağı", "phosphodiester", "phosphodiester bond"],
+    options: optionSet("Peptit", "Fosfodiester", "Glikozit", "Ester", "Disülfit"),
+    correctCompletion: "Fosfodiester",
     explanation:
       "Nükleik asit omurgası, komşu nükleotidleri birbirine bağlayan fosfodiester bağlarıyla kurulur.",
     learningObjective:
@@ -78,8 +78,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Nükleik asit zincirlerinin biyokimyasal yönlülüğü standart olarak _____ yönünde ifade edilir.",
-    blankAnswer: "5'ten 3'e",
-    acceptedAnswers: ["5 ten 3 e", "5' 3'", "5'-3'", "5 ten 3", "5 3"],
+    options: optionSet("3'ten 5'e", "5'ten 3'e", "2'den 4'e", "1'den 6'ya", "N'den C'ye"),
+    correctCompletion: "5'ten 3'e",
     explanation:
       "5' ve 3' uçlar fosfodiester bağını değil zincirin uçlarını ifade eder; zincir yönlülüğü 5'ten 3'e yazılır.",
     learningObjective:
@@ -93,8 +93,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "DNA çift sarmalında aromatik bazların eksene dik biçimde üst üste dizilmesi _____ olarak adlandırılır.",
-    blankAnswer: "Baz istiflenmesi",
-    acceptedAnswers: ["baz istiflenme", "base stacking"],
+    options: optionSet("Komplementasyon", "Baz istiflenmesi", "Denatürasyon", "Hidroliz", "Metilasyon"),
+    correctCompletion: "Baz istiflenmesi",
     explanation:
       "Baz istiflenmesi, düzlemsel baz halkalarının çift sarmalın içinde istiflenerek yapısal kararlılığa katkı vermesidir.",
     learningObjective:
@@ -108,8 +108,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Çift sarmallı DNA'da adenin miktarının timine, guaninin sitozine eşit olduğunu ifade eden nicel ilişki _____ kuralı olarak bilinir.",
-    blankAnswer: "Chargaff",
-    acceptedAnswers: ["Chargaff kuralı", "chargaff kurali"],
+    options: optionSet("Watson-Crick", "Avery", "Chargaff", "Pauling", "Miescher"),
+    correctCompletion: "Chargaff",
     explanation:
       "A=T ve G=C oranları, Chargaff'ın DNA baz bileşimi üzerine ortaya koyduğu temel ilişkidir.",
     learningObjective:
@@ -123,8 +123,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "A=T ve G=C oranlarından çıkarılan ana sonuç, DNA zincirlerinin _____ baz eşleşmesiyle bir arada tutulduğudur.",
-    blankAnswer: "Tamamlayıcı",
-    acceptedAnswers: ["tamamlayici", "tamamlayıcı baz eşleşmesi", "complementary"],
+    options: optionSet("Paralel", "Tamamlayıcı", "İyonik", "Kovalent", "Hidrofobik"),
+    correctCompletion: "Tamamlayıcı",
     explanation:
       "Baz oranlarının eşitliği, iki zincirin tamamlayıcı baz eşleşmesi mantığıyla düzenlendiğini destekler.",
     learningObjective:
@@ -138,8 +138,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Watson-Crick modeline göre DNA'nın iki zinciri birbirine göre _____ düzenlenmiştir.",
-    blankAnswer: "Antiparalel",
-    acceptedAnswers: ["antiparalel dizilim", "antiparallel"],
+    options: optionSet("Koaksiyel", "Antiparalel", "Paralel", "Radyal", "İzotropik"),
+    correctCompletion: "Antiparalel",
     explanation:
       "DNA çift sarmalında zincirler zıt yönlülükte ilerler; bu ilişki antiparalellik olarak adlandırılır.",
     learningObjective:
@@ -153,8 +153,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Watson-Crick modelinde hidrofobik baz halkaları çift sarmalın _____ kısmında istiflenir.",
-    blankAnswer: "İç",
-    acceptedAnswers: ["iç kısmında", "ic kisimda", "içinde"],
+    options: optionSet("Dış", "Majör", "İç", "Minör", "Uç"),
+    correctCompletion: "İç",
     explanation:
       "Pürin ve pirimidin halkaları hidrofobik yapıları nedeniyle çift sarmalın içinde istiflenir; şeker-fosfat omurgası dıştadır.",
     learningObjective:
@@ -168,8 +168,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Polipeptit dizisini doğrudan şifreleyen RNA türü _____dır.",
-    blankAnswer: "mRNA",
-    acceptedAnswers: ["mesajcı RNA", "mesajci RNA", "messenger RNA"],
+    options: optionSet("tRNA", "rRNA", "mRNA", "snRNA", "miRNA"),
+    correctCompletion: "mRNA",
     explanation:
       "Mesajcı RNA, genetik bilginin protein dizisine çevrilmesinde doğrudan şablon görevi görür.",
     learningObjective:
@@ -183,8 +183,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Ökaryotlarda çoğu mesajcı RNA, tek bir polipeptidi kodladığı için _____ olarak tanımlanır.",
-    blankAnswer: "Monosistronik",
-    acceptedAnswers: ["monocistronic", "mono-sistronik"],
+    options: optionSet("Halkasal", "Monosistronik", "Polisistronik", "Antiparalel", "Çift iplikli"),
+    correctCompletion: "Monosistronik",
     explanation:
       "Ökaryotik mRNA çoğunlukla bir tek polipeptit zinciri için bilgi taşıdığı için monosistronik kabul edilir.",
     learningObjective:
@@ -198,8 +198,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Çift sarmal DNA'nın ısı veya pH etkisiyle zincirlerine ayrılmasına _____ denir.",
-    blankAnswer: "Denatürasyon",
-    acceptedAnswers: ["denaturasyon"],
+    options: optionSet("Hibritleşme", "Denatürasyon", "Renatürasyon", "Ligasyon", "Metilasyon"),
+    correctCompletion: "Denatürasyon",
     explanation:
       "Denatürasyon, baz eşleşmeleri ve istiflenmenin bozulmasıyla çift sarmalın açılmasıdır.",
     learningObjective:
@@ -213,8 +213,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Ayrılmış iki tamamlayıcı zincirin yeniden çift sarmal oluşturmasına _____ denir.",
-    blankAnswer: "Renatürasyon",
-    acceptedAnswers: ["renaturasyon", "tavlama", "annealing"],
+    options: optionSet("Alkilasyon", "Renatürasyon", "Denatürasyon", "Deaminasyon", "Ligasyon"),
+    correctCompletion: "Renatürasyon",
     explanation:
       "Renatürasyon, tamamlayıcı zincirlerin uygun koşullar geri geldiğinde yeniden eşleşmesidir.",
     learningObjective:
@@ -228,8 +228,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bir DNA örneğinin yarısının denatüre olduğu sıcaklık _____ ile gösterilir.",
-    blankAnswer: "Tm",
-    acceptedAnswers: ["tm", "T_m", "erime noktası", "erime sicakligi"],
+    options: optionSet("pKa", "Tm", "Km", "Vmax", "Delta G"),
+    correctCompletion: "Tm",
     explanation:
       "Tm, DNA parçasının yarısının çözülmüş durumda olduğu sıcaklığı ifade eder.",
     learningObjective:
@@ -243,8 +243,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Nükleik asitlerde dizi benzerliğini tamamlayıcı baz eşleşmesi üzerinden sınayan süreç _____ olarak adlandırılır.",
-    blankAnswer: "Hibritleşme",
-    acceptedAnswers: ["hibritlesme", "hybridization", "hibridizasyon"],
+    options: optionSet("Replikasyon", "Hibritleşme", "Transkripsiyon", "Ligasyon", "Fosforilasyon"),
+    correctCompletion: "Hibritleşme",
     explanation:
       "Hibritleşme, tamamlayıcı nükleik asit dizilerinin birbirini tanıyıp eşleşmesine dayanır.",
     learningObjective:
@@ -258,8 +258,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Sitozinin spontan deaminasyonu sonucu oluşan baz _____dir.",
-    blankAnswer: "Urasil",
-    acceptedAnswers: ["Uracil", "urasil", "uracil"],
+    options: optionSet("Timin", "Urasil", "Sitozin", "Adenin", "Hipoksantin"),
+    correctCompletion: "Urasil",
     explanation:
       "Deaminasyon sonucunda sitozin amino grubunu kaybeder ve urasile dönüşür.",
     learningObjective:
@@ -273,8 +273,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Azotlu bazın hidrolitik olarak kaybedilmesiyle oluşan abazik DNA bölgesi kısaca _____ lezyonu olarak anılır.",
-    blankAnswer: "AP",
-    acceptedAnswers: ["ap", "abazik", "abazik bölge"],
+    options: optionSet("ROS", "AP", "Tm", "NAD", "GTP"),
+    correctCompletion: "AP",
     explanation:
       "AP lezyonu, apürinik/apirimidin yani bazını kaybetmiş abazik DNA bölgesini ifade eder.",
     learningObjective:
@@ -288,8 +288,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "UV ışınlarının DNA'da oluşturduğu tipik lezyon _____ dimeridir.",
-    blankAnswer: "Pirimidin",
-    acceptedAnswers: ["pirimidin dimeri", "pyrimidine dimer"],
+    options: optionSet("Pürin", "Pirimidin", "Adenin", "Guanin", "Riboz"),
+    correctCompletion: "Pirimidin",
     explanation:
       "UV ışınları bakteri ve insan DNA'sında tipik olarak pirimidin dimerleri oluşturur.",
     learningObjective:
@@ -303,8 +303,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "DNA'daki mutajenik değişimlerin en önemli iç kaynaklarından biri _____ hasardır.",
-    blankAnswer: "Oksidatif",
-    acceptedAnswers: ["oksidatif hasar"],
+    options: optionSet("Hidrolitik", "Oksidatif", "Alkalik", "İzotonik", "Anabolik"),
+    correctCompletion: "Oksidatif",
     explanation:
       "DNA'daki mutajenik değişimlerin en önemli kaynaklarından biri oksidatif hasardır.",
     learningObjective:
@@ -318,8 +318,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Hidroksil radikali, süperoksit ve H2O2 gibi uyarılmış oksijen kaynaklı bileşikler topluca _____ olarak anılır.",
-    blankAnswer: "ROS",
-    acceptedAnswers: ["reaktif oksijen türleri", "reaktif oksijen turleri", "reactive oxygen species"],
+    options: optionSet("RNS", "ROS", "ATP", "GTP", "NAD"),
+    correctCompletion: "ROS",
     explanation:
       "Bu reaktif oksijen türleri DNA dahil çok sayıda biyomolekülde oksidatif hasar oluşturabilir.",
     learningObjective:
@@ -333,8 +333,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Protein sentezi gibi enerji gerektiren süreçlerde ATP'ye ek olarak sık kullanılan guanin nükleotidi _____dir.",
-    blankAnswer: "GTP",
-    acceptedAnswers: ["guanozin trifosfat", "guanosine triphosphate"],
+    options: optionSet("CTP", "GTP", "UTP", "cAMP", "NADH"),
+    correctCompletion: "GTP",
     explanation:
       "GTP, ATP dışında enerji aktarımında görev yapan önemli bir nükleotiddir.",
     learningObjective:
@@ -348,8 +348,8 @@ export const nucleotideFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Elektron taşınmasına katılan nükleotid türevli kofaktörlerden nikotinamid adenin dinükleotid kısaca _____ olarak yazılır.",
-    blankAnswer: "NAD",
-    acceptedAnswers: ["nikotinamid adenin dinükleotid", "nicotinamide adenine dinucleotide"],
+    options: optionSet("FAD", "NAD", "SAM", "CoA", "cAMP"),
+    correctCompletion: "NAD",
     explanation:
       "NAD, adenin nükleotidlerini içeren kofaktörler arasında en temel örneklerden biridir.",
     learningObjective:

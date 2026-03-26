@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T17:54:42.655Z",
+  "generatedAt": "2026-03-26T18:54:02.286Z",
   "inventory": [
     {
       "id": "membrane-transport",
@@ -629,8 +629,8 @@
   "fill_blank_exact_duplicate_pairs": [],
   "fill_blank_near_duplicate_count": 0,
   "fill_blank_near_duplicate_pairs": [],
-  "fill_blank_accepted_answer_issue_count": 0,
-  "fill_blank_accepted_answer_issue_details": [],
+  "fill_blank_option_quality_issue_count": 0,
+  "fill_blank_option_quality_issue_details": [],
   "placeholder_file_findings": [],
   "topicTotals": [
     {

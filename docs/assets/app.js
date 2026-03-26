@@ -511,73 +511,27 @@ function renderModeSwitch(container, options = {}) {
   }
 }
 
-function normalizeFillBlankAnswer(value, rules = [], caseSensitive = false) {
-  let normalized = String(value || "").replace(/\r\n/g, "\n");
+function buildFillBlankPrompt(promptText, fillText = null, className = "fill-blank-prompt") {
+  const prompt = element("p", className);
+  const parts = String(promptText || "").split("_____");
 
-  if (rules.includes("trim")) {
-    normalized = normalized.trim();
-  }
-  if (rules.includes("collapse_whitespace")) {
-    normalized = normalized.replace(/\s+/g, " ");
-  }
-  if (rules.includes("apostrophe_fold")) {
-    normalized = normalized.replace(/[’`´]/g, "'");
-  }
-  if (rules.includes("separator_fold")) {
-    normalized = normalized
-      .replace(/[αΑ]/g, "alpha")
-      .replace(/[βΒ]/g, "beta")
-      .replace(/[ωΩ]/g, "omega")
-      .replace(/[‐‑‒–—-]/g, " ")
-      .replace(/[(){}\[\],.;:!?/\\]/g, " ")
-      .replace(/[’'"]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-  if (rules.includes("case_fold") && !caseSensitive) {
-    normalized = normalized.toLocaleLowerCase("tr");
-  }
-  if (rules.includes("turkish_fold")) {
-    normalized = normalized
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/ı/g, "i")
-      .replace(/İ/g, "i")
-      .replace(/ş/g, "s")
-      .replace(/Ş/g, "s")
-      .replace(/ğ/g, "g")
-      .replace(/Ğ/g, "g")
-      .replace(/ü/g, "u")
-      .replace(/Ü/g, "u")
-      .replace(/ö/g, "o")
-      .replace(/Ö/g, "o")
-      .replace(/ç/g, "c")
-      .replace(/Ç/g, "c");
+  if (parts.length === 1) {
+    prompt.textContent = String(promptText || "");
+    return prompt;
   }
 
-  return normalized.trim();
-}
-
-function matchFillBlankAnswer(question, userAnswer) {
-  const normalizedUser = normalizeFillBlankAnswer(
-    userAnswer,
-    question.normalization_rules || [],
-    question.case_sensitive
-  );
-  const acceptedAnswers = question.accepted_answers || [];
-
-  for (const answer of acceptedAnswers) {
-    const normalizedAccepted = normalizeFillBlankAnswer(
-      answer,
-      question.normalization_rules || [],
-      question.case_sensitive
-    );
-    if (normalizedUser && normalizedAccepted && normalizedUser === normalizedAccepted) {
-      return { isCorrect: true, normalizedUser, matchedAnswer: answer };
+  parts.forEach((part, index) => {
+    if (part) {
+      prompt.append(document.createTextNode(part));
     }
-  }
 
-  return { isCorrect: false, normalizedUser, matchedAnswer: null };
+    if (index < parts.length - 1) {
+      const gap = element("span", fillText ? "fill-blank-gap is-filled" : "fill-blank-gap", fillText || "_____");
+      prompt.append(gap);
+    }
+  });
+
+  return prompt;
 }
 
 function buildScopeChoiceActions(pageFile = "practice.html") {
@@ -1047,6 +1001,80 @@ function buildExplanationDialogContent(question, answerState) {
   }
 
   return sections;
+}
+
+function buildFillBlankExplanationDialogContent(question, answerState) {
+  const sections = [
+    buildQuestionDialogSection("", [
+      buildQuestionDialogStat(
+        answerState.isCorrect ? "Sonuç" : "Doğru Tamamlama",
+        `${question.correct_answer}) ${question.correct_completion}`,
+        answerState.isCorrect ? "success" : ""
+      )
+    ]),
+    buildQuestionDialogSection("Tamamlanan Cümle", [
+      buildFillBlankPrompt(question.prompt_text, question.correct_completion, "fill-blank-dialog-prompt")
+    ]),
+    buildQuestionDialogSection("Açıklama", [element("p", "", question.explanation)])
+  ];
+
+  if (!answerState.isCorrect) {
+    sections.splice(
+      1,
+      0,
+      buildQuestionDialogSection("", [
+        buildQuestionDialogStat(
+          "Seçimin",
+          `${answerState.selectedLetter}) ${question.options[answerState.selectedLetter] || "Boş"}`
+        )
+      ])
+    );
+  }
+
+  return sections;
+}
+
+function setFillBlankDockState({ question = null, answerState = null } = {}) {
+  if (document.body.dataset.layout !== "question-flow") return;
+
+  ensureCompactQuestionUi();
+  const dock = compactQuestionUi.dock;
+  if (!dock) return;
+
+  const hasQuestion = Boolean(question);
+  const sourceButton = dock.buttons.source;
+  const explanationButton = dock.buttons.explanation;
+
+  dock.handlers.source = hasQuestion
+    ? () =>
+        openQuestionDialog({
+          title: "Kaynak",
+          subtitle: question.source_subtopic || question.source_topic,
+          content: buildSourceDialogContent(question, question.source_subtopic || question.source_topic)
+        })
+    : null;
+
+  dock.handlers.explanation = hasQuestion && answerState
+    ? () =>
+        openQuestionDialog({
+          title: "Açıklama",
+          subtitle: question.source_subtopic || question.source_topic,
+          content: buildFillBlankExplanationDialogContent(question, answerState)
+        })
+    : null;
+
+  if (sourceButton) {
+    sourceButton.disabled = !hasQuestion;
+  }
+
+  if (explanationButton) {
+    const isReady = Boolean(hasQuestion && answerState);
+    explanationButton.disabled = !isReady;
+    explanationButton.dataset.state = isReady ? "ready" : hasQuestion ? "locked" : "empty";
+    explanationButton.title = isReady ? "Açıklama" : "Açıklama (cevaptan sonra açılır)";
+  }
+
+  dock.root.dataset.dockState = answerState ? "answered" : hasQuestion ? "active" : "empty";
 }
 
 function buildQuestionCard(question, options = {}) {
@@ -1880,54 +1908,34 @@ function filterFillBlanks({ topic = "", difficulty = "", weakOnly = false }) {
   });
 }
 
-function buildFillBlankSupportCard(title, content, extraNodes = []) {
-  const card = element("article", "fill-blank-support-card");
-  card.append(element("h3", "", title), element("p", "", content));
-  if (extraNodes.length) {
-    const row = element("div", "detail-chip-row");
-    row.append(...extraNodes);
-    card.append(row);
-  }
-  return card;
-}
-
 function buildFillBlankStage({
   question,
   index,
   total,
+  activeFilterLabel,
+  selectedLetter,
   answerState,
+  onSelect,
   onSubmit,
   onSkip,
-  onNext
+  onNext,
+  onOpenTools
 }) {
   const fragment = document.createDocumentFragment();
-  const stageHead = element("div", "fill-blank-stage-head");
-  const heading = element("div", "fill-blank-stage-heading");
-  const meta = element("div", "question-meta");
-  const card = element("article", "fill-blank-card");
-  const context = element(
+  const card = element("article", "question-card fill-blank-card");
+  const meta = element("div", "question-meta question-meta-compact");
+  const metaGroup = element("div", "question-meta-group");
+  const utility = element("div", "fill-blank-utility");
+  const kicker = element(
     "p",
-    "fill-blank-context",
+    "question-kicker",
     question.source_subtopic && question.source_subtopic !== question.source_topic
       ? question.source_subtopic
       : question.source_topic
   );
-  const prompt = element("p", "fill-blank-prompt", question.prompt_text);
-  const inputLabel = element("label", "fill-blank-input-label");
-  const inputCaption = element("span", "", "Cevabın");
-  const input = document.createElement("input");
-  input.className = "fill-blank-input";
-  input.id = "fill-blank-answer";
-  input.type = "text";
-  input.autocomplete = "off";
-  input.autocapitalize = "off";
-  input.autocorrect = "off";
-  input.spellcheck = false;
-  input.enterKeyHint = "done";
-  input.placeholder = "Kısa cevabı yaz";
-  input.value = answerState?.userAnswer || "";
-  input.disabled = Boolean(answerState);
-
+  const filterLabel = element("p", "practice-active-filter fill-blank-inline-filter", activeFilterLabel);
+  const prompt = buildFillBlankPrompt(question.prompt_text);
+  const optionGrid = element("div", "option-grid fill-blank-option-grid");
   const actionRow = element("div", "fill-blank-actions");
   const submitButton = element("button", "button primary", "Kontrol Et");
   submitButton.type = "button";
@@ -1935,65 +1943,52 @@ function buildFillBlankStage({
   skipButton.type = "button";
   const nextButton = element("button", "button secondary fill-blank-next", "Sonraki");
   nextButton.type = "button";
-
   const feedback = element("div", "fill-blank-feedback");
   const explanation = element("div", "fill-blank-explanation");
-  const supportGrid = element("div", "fill-blank-support-grid");
-  const sourceCard = buildFillBlankSupportCard(
-    "Kaynak",
-    `${formatFileLabel(question.source_pdf)} • Sayfa ${question.source_pages.join(", ")}`
-  );
-  const objectiveCard = buildFillBlankSupportCard("Öğrenme Hedefi", question.learning_objective);
+  const desktopToolsButton = element("button", "button secondary fill-blank-tools-toggle desktop-only-action", "Ayarlar");
 
-  if (question.tags.length) {
-    objectiveCard.append(
-      (() => {
-        const row = element("div", "detail-chip-row");
-        question.tags.forEach((tag) => row.append(badge(tag)));
-        return row;
-      })()
-    );
-  }
-
-  heading.append(
-    element("p", "eyebrow", "Aktif hatırlama"),
-    element("h2", "fill-blank-stage-title", `${index}/${total}`),
-    element("p", "practice-active-filter fill-blank-active-filter", fillBlankPoolLabel(total))
-  );
-
-  meta.append(
+  metaGroup.append(
     badge(question.difficulty, difficultyClass(question.difficulty)),
     badge(topicLabelByPdf(question.source_pdf))
   );
+  utility.append(element("span", "question-progress", `${index}/${total}`), desktopToolsButton);
+  meta.append(metaGroup, utility);
 
-  if (question.source_subtopic && question.source_subtopic !== question.source_topic) {
-    meta.append(badge(question.source_subtopic));
-  }
+  desktopToolsButton.type = "button";
+  desktopToolsButton.setAttribute("aria-haspopup", "dialog");
+  desktopToolsButton.setAttribute("aria-controls", "fill-blank-tools-sheet");
+  desktopToolsButton.addEventListener("click", () => onOpenTools(desktopToolsButton));
 
-  stageHead.append(heading, meta);
+  Object.entries(question.options).forEach(([letter, value]) => {
+    const button = element("button", "option-button");
+    button.type = "button";
+    button.dataset.letter = letter;
+    button.append(element("span", "option-label", letter), element("span", "option-text", value));
 
-  inputLabel.append(inputCaption, input);
-
-  submitButton.disabled = true;
-  skipButton.disabled = Boolean(answerState);
-  nextButton.disabled = !answerState;
-
-  const syncSubmitState = () => {
-    submitButton.disabled = Boolean(answerState) || !input.value.trim();
-  };
-
-  input.addEventListener("input", syncSubmitState);
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !submitButton.disabled) {
-      event.preventDefault();
-      onSubmit(input.value);
+    if (selectedLetter === letter && !answerState) {
+      button.classList.add("is-selected");
     }
+
+    if (answerState) {
+      button.disabled = true;
+      if (letter === question.correct_answer) {
+        button.classList.add("correct");
+      } else if (!answerState.isCorrect && letter === answerState.selectedLetter) {
+        button.classList.add("incorrect");
+      }
+    } else {
+      button.addEventListener("click", () => onSelect(letter));
+    }
+
+    optionGrid.append(button);
   });
 
-  submitButton.addEventListener("click", () => onSubmit(input.value));
+  submitButton.disabled = Boolean(answerState) || !selectedLetter;
+  skipButton.disabled = Boolean(answerState);
+  nextButton.disabled = !answerState;
+  submitButton.addEventListener("click", () => onSubmit(selectedLetter));
   skipButton.addEventListener("click", onSkip);
   nextButton.addEventListener("click", onNext);
-
   actionRow.append(submitButton, skipButton, nextButton);
 
   if (answerState) {
@@ -2005,10 +2000,11 @@ function buildFillBlankStage({
         "p",
         "",
         answerState.isCorrect
-          ? "Cevap accepted_answers eşleşmesiyle doğrulandı."
-          : "Cevap accepted_answers eşleşmesine girmedi."
+          ? "Boşluğu doğru seçenekle tamamladın."
+          : `Seçtiğin seçenek doğru değildi: ${answerState.selectedLetter}) ${question.options[answerState.selectedLetter]}`
       ),
-      element("p", "fill-blank-answer-line", `Doğru cevap: ${question.blank_answer}`)
+      element("p", "fill-blank-answer-line", `Doğru tamamlama: ${question.correct_answer}) ${question.correct_completion}`),
+      buildFillBlankPrompt(question.prompt_text, question.correct_completion, "fill-blank-feedback-prompt")
     );
 
     explanation.hidden = false;
@@ -2021,13 +2017,10 @@ function buildFillBlankStage({
     explanation.hidden = true;
   }
 
-  syncSubmitState();
-
-  supportGrid.append(sourceCard, objectiveCard);
-  card.append(stageHead, context, prompt, inputLabel, actionRow, feedback, explanation, supportGrid);
+  card.append(meta, kicker, filterLabel, prompt, optionGrid, actionRow, feedback, explanation);
   fragment.append(card);
 
-  return { fragment, input };
+  return { fragment };
 }
 
 function buildFillBlanksPage() {
@@ -2039,41 +2032,110 @@ function buildFillBlanksPage() {
     mcqPage: "practice.html"
   });
 
+  const body = document.body;
   const topicSelect = document.getElementById("fill-blank-topic");
   const difficultySelect = document.getElementById("fill-blank-difficulty");
   const weakOnlyInput = document.getElementById("fill-blank-weak-only");
+  const toolsSheet = document.getElementById("fill-blank-tools-sheet");
+  const toolsClose = document.getElementById("fill-blank-tools-close");
+  const applyButton = document.getElementById("fill-blank-apply-filters");
+  const resetButton = document.getElementById("fill-blank-reset-filters");
+  const overlay = document.getElementById("fill-blank-overlay");
+  const toolsDockToggle = document.getElementById("fill-blank-tools-dock-toggle");
+  const dockNextButton = document.getElementById("fill-blank-next-dock");
   const poolCount = document.getElementById("fill-blank-count");
   const activeFilter = document.getElementById("fill-blank-active-filter");
   const solvedStat = document.getElementById("fill-blank-solved");
   const correctStat = document.getElementById("fill-blank-correct");
   const weakStat = document.getElementById("fill-blank-weak");
+  const desktopQuery = window.matchMedia("(min-width: 768px)");
 
   populateFillBlankTopicSelect(topicSelect);
 
-  let filters = {
+  let committedFilters = {
     topic: "",
     difficulty: "",
     weakOnly: false
   };
+  let draftFilters = { ...committedFilters };
   let currentQuestionId = null;
+  let selectedLetter = "";
   let answerState = null;
   let lastRenderedId = null;
+  let lastTrigger = null;
 
-  const syncSummary = () => {
-    const summary = fillBlankSummary("midterm");
-    const filtered = filterFillBlanks(filters);
+  const formatFilterSummary = (filters) => {
     const parts = [examScopeLabel("midterm")];
     if (filters.topic) parts.push(filters.topic);
     if (filters.difficulty) parts.push(filters.difficulty);
     if (filters.weakOnly) parts.push("Zayıf sorular");
+    if (parts.length === 1) parts.push("Tüm havuz");
+    return parts.join(" • ");
+  };
 
-    activeFilter.textContent = parts.join(" • ");
-    poolCount.textContent = fillBlankPoolLabel(filtered.length);
+  const syncControlValues = () => {
+    topicSelect.value = draftFilters.topic;
+    difficultySelect.value = draftFilters.difficulty;
+    weakOnlyInput.checked = draftFilters.weakOnly;
+  };
+
+  const resetToolExpansion = () => {
+    document
+      .querySelectorAll("#fill-blank-tools-dock-toggle, .fill-blank-tools-toggle")
+      .forEach((node) => node.setAttribute("aria-expanded", "false"));
+  };
+
+  const setSheetSemantics = () => {
+    if (body.classList.contains("practice-sheet-open")) {
+      toolsSheet?.setAttribute("role", "dialog");
+      toolsSheet?.setAttribute("aria-modal", "true");
+      document
+        .querySelectorAll("#fill-blank-tools-dock-toggle, .fill-blank-tools-toggle")
+        .forEach((node) => node.setAttribute("aria-expanded", "true"));
+    } else {
+      toolsSheet?.removeAttribute("role");
+      toolsSheet?.removeAttribute("aria-modal");
+    }
+  };
+
+  const updateSummary = () => {
+    const summary = fillBlankSummary("midterm");
+    const committedPool = filterFillBlanks(committedFilters);
+    const draftPool = filterFillBlanks(draftFilters);
+
+    activeFilter.textContent = formatFilterSummary(committedFilters);
+    poolCount.textContent = fillBlankPoolLabel(draftPool.length);
     solvedStat.textContent = String(summary.solvedCount);
     correctStat.textContent = String(summary.correctCount);
     weakStat.textContent = String(summary.weakCount);
+    applyButton.disabled = false;
+    resetButton.disabled = !draftFilters.topic && !draftFilters.difficulty && !draftFilters.weakOnly;
 
-    return filtered;
+    return committedPool;
+  };
+
+  const closeTools = ({ restoreFocus = false } = {}) => {
+    body.classList.remove("practice-filters-open", "practice-sheet-open");
+    draftFilters = { ...committedFilters };
+    syncControlValues();
+    updateSummary();
+    resetToolExpansion();
+    setSheetSemantics();
+
+    if (restoreFocus && lastTrigger) {
+      lastTrigger.focus();
+    }
+  };
+
+  const openTools = (trigger) => {
+    closeQuestionDialog();
+    lastTrigger = trigger;
+    draftFilters = { ...committedFilters };
+    syncControlValues();
+    updateSummary();
+    body.classList.add("practice-filters-open", "practice-sheet-open");
+    setSheetSemantics();
+    window.setTimeout(() => topicSelect.focus(), 0);
   };
 
   const resolveQuestion = (filtered) => {
@@ -2101,9 +2163,14 @@ function buildFillBlanksPage() {
   };
 
   const render = () => {
-    const filtered = syncSummary();
+    const filtered = updateSummary();
 
     if (!state.fillBlanks?.length) {
+      setFillBlankDockState();
+      if (dockNextButton) {
+        dockNextButton.disabled = true;
+        dockNextButton.onclick = null;
+      }
       setEmpty(
         root,
         "Boşluk doldurma verisi hazır değil",
@@ -2114,7 +2181,12 @@ function buildFillBlanksPage() {
     }
 
     if (!filtered.length) {
-      const message = filters.weakOnly
+      setFillBlankDockState();
+      if (dockNextButton) {
+        dockNextButton.disabled = true;
+        dockNextButton.onclick = null;
+      }
+      const message = committedFilters.weakOnly
         ? "Zayıf boşluk havuzun şu an boş. Filtreyi kapatıp tüm havuza dönebilirsin."
         : "Bu filtrelerle eşleşen boşluk bulunamadı.";
       setEmpty(root, "Bu seçimde boşluk yok", message, [
@@ -2135,69 +2207,124 @@ function buildFillBlanksPage() {
       lastRenderedId = question.id;
     }
 
+    const goToNextQuestion = () => {
+      const nextPool = filterFillBlanks(committedFilters);
+      if (!nextPool.length) {
+        currentQuestionId = null;
+        answerState = null;
+        selectedLetter = "";
+        lastRenderedId = null;
+        render();
+        return;
+      }
+
+      const currentPosition = nextPool.findIndex((item) => item.id === question.id);
+      const resolvedIndex = currentPosition >= 0 ? currentPosition : Math.max(0, index - 1);
+      const nextIndex = (resolvedIndex + 1) % nextPool.length;
+      currentQuestionId = nextPool[nextIndex].id;
+      answerState = null;
+      selectedLetter = "";
+      lastRenderedId = null;
+      render();
+    };
+
+    const skipCurrentQuestion = () => {
+      const currentPool = filterFillBlanks(committedFilters);
+      recordFillBlankResult(question.id, "skipped", "midterm");
+      const nextIndex = currentPool.length > 1 ? (index + 1) % currentPool.length : index;
+      currentQuestionId = currentPool[nextIndex]?.id || null;
+      answerState = null;
+      selectedLetter = "";
+      lastRenderedId = null;
+      render();
+    };
+
     clearNode(root);
     const stage = buildFillBlankStage({
       question,
       index: index + 1,
       total,
+      activeFilterLabel: `${formatFilterSummary(committedFilters)} • ${fillBlankPoolLabel(total)}`,
+      selectedLetter,
       answerState,
-      onSubmit: (value) => {
-        const result = matchFillBlankAnswer(question, value);
-        answerState = {
-          isCorrect: result.isCorrect,
-          userAnswer: value,
-          normalizedUser: result.normalizedUser
-        };
-        recordFillBlankResult(question.id, result.isCorrect ? "correct" : "wrong", "midterm");
-        syncSummary();
+      onSelect: (letter) => {
+        selectedLetter = letter;
         renderQuestion(question, index, total);
       },
-      onSkip: () => {
-        const currentPool = filterFillBlanks(filters);
-        recordFillBlankResult(question.id, "skipped", "midterm");
-        const nextIndex = currentPool.length > 1 ? (index + 1) % currentPool.length : index;
-        currentQuestionId = currentPool[nextIndex]?.id || null;
-        answerState = null;
-        lastRenderedId = null;
-        render();
+      onSubmit: (letter) => {
+        const isCorrect = letter === question.correct_answer;
+        answerState = {
+          isCorrect,
+          selectedLetter: letter,
+          correctLetter: question.correct_answer
+        };
+        recordFillBlankResult(question.id, isCorrect ? "correct" : "wrong", "midterm");
+        renderQuestion(question, index, total);
       },
-      onNext: () => {
-        const nextPool = filterFillBlanks(filters);
-        if (!nextPool.length) {
-          currentQuestionId = null;
-          answerState = null;
-          lastRenderedId = null;
-          render();
-          return;
-        }
-
-        const currentPosition = nextPool.findIndex((item) => item.id === question.id);
-        const resolvedIndex = currentPosition >= 0 ? currentPosition : Math.max(0, index - 1);
-        const nextIndex = (resolvedIndex + 1) % nextPool.length;
-        currentQuestionId = nextPool[nextIndex].id;
-        answerState = null;
-        lastRenderedId = null;
-        render();
-      }
+      onSkip: skipCurrentQuestion,
+      onNext: goToNextQuestion,
+      onOpenTools: openTools
     });
 
     root.append(stage.fragment);
+    setFillBlankDockState({ question, answerState });
+
+    if (dockNextButton) {
+      dockNextButton.disabled = false;
+      dockNextButton.onclick = answerState ? goToNextQuestion : skipCurrentQuestion;
+      dockNextButton.title = answerState ? "Sonraki" : "Atla";
+    }
   };
 
-  const handleFilters = () => {
-    filters = {
+  const applyFilters = () => {
+    committedFilters = {
+      topic: draftFilters.topic,
+      difficulty: draftFilters.difficulty,
+      weakOnly: draftFilters.weakOnly
+    };
+    answerState = null;
+    selectedLetter = "";
+    lastRenderedId = null;
+    render();
+    closeTools({ restoreFocus: true });
+  };
+
+  const handleDraftChange = () => {
+    draftFilters = {
       topic: topicSelect.value,
       difficulty: difficultySelect.value,
       weakOnly: weakOnlyInput.checked
     };
-    answerState = null;
-    lastRenderedId = null;
-    render();
+    updateSummary();
   };
 
-  [topicSelect, difficultySelect].forEach((node) => node.addEventListener("change", handleFilters));
-  weakOnlyInput?.addEventListener("change", handleFilters);
+  [topicSelect, difficultySelect].forEach((node) => node.addEventListener("change", handleDraftChange));
+  weakOnlyInput?.addEventListener("change", handleDraftChange);
+  toolsDockToggle?.addEventListener("click", () => {
+    if (body.classList.contains("practice-sheet-open")) {
+      closeTools({ restoreFocus: true });
+    } else {
+      openTools(toolsDockToggle);
+    }
+  });
+  toolsClose?.addEventListener("click", () => closeTools({ restoreFocus: true }));
+  applyButton?.addEventListener("click", applyFilters);
+  resetButton?.addEventListener("click", () => {
+    draftFilters = { topic: "", difficulty: "", weakOnly: false };
+    syncControlValues();
+    updateSummary();
+  });
+  overlay?.addEventListener("click", () => closeTools({ restoreFocus: true }));
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && body.classList.contains("practice-sheet-open")) {
+      closeTools({ restoreFocus: true });
+    }
+  });
+  desktopQuery.addEventListener("change", () => {
+    closeTools();
+  });
 
+  syncControlValues();
   render();
 }
 

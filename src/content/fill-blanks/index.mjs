@@ -1,5 +1,6 @@
-export { DEFAULT_NORMALIZATION_RULES, makeFillBlank } from "./helpers.mjs";
+export { FILL_BLANK_OPTION_LETTERS, makeFillBlank, optionSet } from "./helpers.mjs";
 export { MIDTERM_FILL_BLANK_TARGETS } from "./targets.mjs";
+export { FILL_BLANK_CONVERSION_META } from "./conversion-meta.mjs";
 export { carbohydrateFillBlanks } from "./carbohydrates.mjs";
 export { lipidFillBlanks } from "./lipids.mjs";
 export { nucleotideFillBlanks } from "./nucleotides.mjs";

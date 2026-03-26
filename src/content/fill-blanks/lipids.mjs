@@ -1,4 +1,4 @@
-import { makeFillBlank } from "./helpers.mjs";
+import { makeFillBlank, optionSet } from "./helpers.mjs";
 
 const sourcePdf = "Lipitler.pdf";
 const sourceTopic = "Lipitler";
@@ -18,8 +18,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Biyolojik lipitleri ortak bir sınıfta toplayan belirleyici fizikokimyasal özellik, suda büyük ölçüde _____ olmalarıdır.",
-    blankAnswer: "Çözünmez",
-    acceptedAnswers: ["Çözünmez olmaları", "cozunmez", "cozunmez olmalari"],
+    options: optionSet("Çözünmez", "İyonik", "Uçucu", "Amfoterik", "Aromatik"),
+    correctCompletion: "Çözünmez",
     explanation:
       "Biyolojik lipitlerin ortak ve ayırt edici özelliği suda çözünmemeleridir.",
     learningObjective:
@@ -33,8 +33,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Yağ asidi gösteriminde X:Y notasyonundaki X değeri zincirdeki toplam _____ sayısını verir.",
-    blankAnswer: "Karbon",
-    acceptedAnswers: ["Karbon sayısı", "karbon atomu", "karbon atomu sayısı"],
+    options: optionSet("Azot", "Fosfat", "Karbon", "Oksijen", "Kükürt"),
+    correctCompletion: "Karbon",
     explanation:
       "X:Y notasyonunda X, zincir uzunluğunu yani toplam karbon sayısını belirtir.",
     learningObjective:
@@ -48,8 +48,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "18:1 gösterimindeki Y değeri, zincirdeki _____ bağ sayısını belirtir.",
-    blankAnswer: "Çift",
-    acceptedAnswers: ["Çift bağ", "cift", "cift bag", "cift bag sayisi"],
+    options: optionSet("Ester", "Çift", "Tek", "Amid", "Eter"),
+    correctCompletion: "Çift",
     explanation:
       "Y değeri, yağ asidi zincirinde bulunan karbon-karbon çift bağlarının sayısını gösterir.",
     learningObjective:
@@ -63,8 +63,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "İnsanlar için elzem kabul edilen başlıca omega-3 yağ asidi _____ asittir.",
-    blankAnswer: "Alfa-linolenik",
-    acceptedAnswers: ["Alpha-linolenik", "alfa linolenik", "alpha linolenik", "ALA", "alfa-linolenik asit", "alpha-linolenik asit"],
+    options: optionSet("Linoleik", "Oleik", "Alfa-linolenik", "Palmitik", "Araşidonik"),
+    correctCompletion: "Alfa-linolenik",
     explanation:
       "İnsan için elzem omega-3 yağ asidi olarak alfa-linolenik asit öne çıkar.",
     learningObjective:
@@ -78,8 +78,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Metil ucundan sayıldığında ilk çift bağ üçüncü karbonda ise yağ asidi _____-3 olarak sınıflanır.",
-    blankAnswer: "Omega",
-    acceptedAnswers: ["ω", "omega 3", "omega-3"],
+    options: optionSet("Delta", "Omega", "Alfa", "Beta", "Cis"),
+    correctCompletion: "Omega",
     explanation:
       "Omega sınıflaması, ilk çift bağın metil ucuna göre konumuna dayanır; üçüncü karbondaki ilk çift bağ omega-3 ailesini tanımlar.",
     learningObjective:
@@ -93,8 +93,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Gliserole üç yağ asidinin esterleşmesiyle oluşan en basit depo lipitleri _____ olarak adlandırılır.",
-    blankAnswer: "Triaçilgliseroller",
-    acceptedAnswers: ["Triaçilgliserol", "trigliseritler", "trigliserit", "triasilgliserol", "triasilgliseroller"],
+    options: optionSet("Mumlar", "Triaçilgliseroller", "Steroller", "Gliserofosfolipitler", "Sfingolipitler"),
+    correctCompletion: "Triaçilgliseroller",
     explanation:
       "Yağ asitlerinden oluşan en basit lipitler triaçilgliseroller olarak adlandırılır.",
     learningObjective:
@@ -108,8 +108,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Üç yağ asidinin de aynı olduğu triaçilgliseroller biyokimyada _____ triaçilgliserol olarak adlandırılır.",
-    blankAnswer: "Basit",
-    acceptedAnswers: ["Basit triaçilgliserol", "basit triaçilgliseroller"],
+    options: optionSet("Karışık", "Basit", "Amfipatik", "Siklik", "Dallanmış"),
+    correctCompletion: "Basit",
     explanation:
       "Aynı yağ asitlerinden oluşan moleküller basit triaçilgliserol sınıfına girer.",
     learningObjective:
@@ -123,7 +123,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Gliserolün üç palmitatla esterleşmesi sonucu oluşan basit triaçilgliserol örneği _____dir.",
-    blankAnswer: "Tripalmitin",
+    options: optionSet("Tristearin", "Triolein", "Tripalmitin", "Fosfatidilkolin", "Seramid"),
+    correctCompletion: "Tripalmitin",
     explanation:
       "Üç palmitik asit içeren basit triaçilgliserol için tipik örnek tripalmitindir.",
     learningObjective:
@@ -137,8 +138,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bitkisel yağların kısmi hidrojenlenmesi, cis çift bağların bir kısmını _____ yapıya dönüştürebilir.",
-    blankAnswer: "Trans",
-    acceptedAnswers: ["trans forma", "trans yapı", "trans yağ"],
+    options: optionSet("Cis", "Trans", "Satüre", "Omega", "Konjuge"),
+    correctCompletion: "Trans",
     explanation:
       "Kısmi hidrojenleme işlemi sırasında bazı cis çift bağlar trans konfigürasyona izomerleşebilir.",
     learningObjective:
@@ -152,8 +153,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Kısmi hidrojenlemenin teknoloji açısından tercih edilmesinin başlıca nedeni, yağların oksidasyona bağlı _____ riskini azaltmaktır.",
-    blankAnswer: "Bozulma",
-    acceptedAnswers: ["bozulma riski", "acima", "acıma"],
+    options: optionSet("Esterleşme", "Emülsiyon", "Bozulma", "Sülfatlanma", "İzomerleşme"),
+    correctCompletion: "Bozulma",
     explanation:
       "Çift bağların kırılmasına bağlı oksidatif bozulma raf ömrü sorununa yol açar; hidrojenleme bu riski azaltmak için uygulanır.",
     learningObjective:
@@ -167,8 +168,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Uzun zincirli bir yağ asidinin uzun zincirli bir alkolle esterinden oluşan koruyucu lipitler _____ olarak adlandırılır.",
-    blankAnswer: "Mumlar",
-    acceptedAnswers: ["Mum", "wax", "waxes"],
+    options: optionSet("Mumlar", "Triaçilgliseroller", "Steroller", "Sfingolipitler", "Gliserofosfolipitler"),
+    correctCompletion: "Mumlar",
     explanation:
       "Mumlar, uzun zincirli asit ve alkollerin esterlerinden oluşan koruyucu yüzey lipitleridir.",
     learningObjective:
@@ -182,8 +183,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Zar lipitlerinin suyla ve birbirleriyle etkileşerek çift tabaka oluşturabilmesinin temel nedeni bu moleküllerin _____ karakter taşımasıdır.",
-    blankAnswer: "Amfipatik",
-    acceptedAnswers: ["amfipatik karakter", "amfipatik yapı"],
+    options: optionSet("Hidrofobik", "Amfipatik", "Kovalent", "Aromatik", "Polimerik"),
+    correctCompletion: "Amfipatik",
     explanation:
       "Hidrofilik baş ve hidrofobik kuyruk içeren amfipatik yapı, zar çift tabakasının spontan oluşumunu mümkün kılar.",
     learningObjective:
@@ -197,8 +198,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Gliserofosfolipitlerin temel iskeleti olan fosforillenmiş ara bileşik _____ asittir.",
-    blankAnswer: "Fosfatidik",
-    acceptedAnswers: ["Fosfatidik asit"],
+    options: optionSet("Palmitik", "Fosfatidik", "Gliserik", "Oleik", "Propiyonik"),
+    correctCompletion: "Fosfatidik",
     explanation:
       "Gliserofosfolipitlerin ana bileşiği fosfatidik asittir.",
     learningObjective:
@@ -212,8 +213,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Gliserofosfolipitlerde sınıf adlandırması çoğunlukla fosfat grubuna bağlı _____ göre yapılır.",
-    blankAnswer: "Polar alkole",
-    acceptedAnswers: ["polar alkol", "baş grup", "bas grup", "polar baş gruba"],
+    options: optionSet("Yağ asidine", "Polar alkole", "Sterol çekirdeğine", "Eter bağına", "İzopren zincirine"),
+    correctCompletion: "Polar alkole",
     explanation:
       "Adlandırma, fosfat grubuna bağlı polar alkol ya da baş grubun kimliğine göre kurulur.",
     learningObjective:
@@ -227,8 +228,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bitki kloroplast zarlarında baskın olup bir veya iki galaktoz taşıyan yapısal lipitler _____ olarak adlandırılır.",
-    blankAnswer: "Galaktolipitler",
-    acceptedAnswers: ["Galaktolipit", "galactolipids", "galactolipid"],
+    options: optionSet("Sfingomiyelinler", "Galaktolipitler", "Steroller", "Mumlar", "Plazmalojenler"),
+    correctCompletion: "Galaktolipitler",
     explanation:
       "Kloroplast zarlarında galaktoz taşıyan yapısal lipit sınıfı galaktolipitlerdir.",
     learningObjective:
@@ -242,8 +243,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Arkelerde ekstrem koşullara dayanıklılığı artıran temel bağ tipi _____ bağıdır.",
-    blankAnswer: "Eter",
-    acceptedAnswers: ["eter bağı", "eter bagi"],
+    options: optionSet("Amid", "Ester", "Eter", "Peptit", "Disülfit"),
+    correctCompletion: "Eter",
     explanation:
       "Arke zar lipitlerinde ester yerine eter bağları bulunur; bu durum kimyasal dayanıklılığı artırır.",
     learningObjective:
@@ -257,8 +258,8 @@ export const lipidFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Arke zar lipitlerinde eter bağlarının tercih edilmesi, bu bağların hidrolize karşı daha _____ olmasına katkı sağlar.",
-    blankAnswer: "Dayanıklı",
-    acceptedAnswers: ["Dirençli", "daha dayanıklı", "daha dirençli"],
+    options: optionSet("Polar", "Dayanıklı", "Dallanmış", "İndirgen", "Esnek"),
+    correctCompletion: "Dayanıklı",
     explanation:
       "Eter bağları, ekstrem koşullarda hidrolize karşı daha dirençlidir.",
     learningObjective:
@@ -272,7 +273,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Sfingolipitlerin karakteristik amino alkol omurgası _____ olarak adlandırılır.",
-    blankAnswer: "Sfingozin",
+    options: optionSet("Kolesterol", "Gliserol", "Sfingozin", "Etanolamin", "Skualen"),
+    correctCompletion: "Sfingozin",
     explanation:
       "Sfingolipitler, gliserol yerine sfingozin omurgası taşıyan zar lipitleridir.",
     learningObjective:
@@ -286,8 +288,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bir yağ asidinin sfingozine amid bağıyla bağlanmasıyla oluşan çekirdek yapı _____dir.",
-    blankAnswer: "Seramid",
-    acceptedAnswers: ["Ceramide", "ceramid", "ceramide"],
+    options: optionSet("Sfingomiyelin", "Seramid", "Kolesterol", "Plazmalojen", "Fosfatidat"),
+    correctCompletion: "Seramid",
     explanation:
       "Seramid, sfingozin ile yağ asidinin amid bağı kurduğu temel sfingolipit çekirdeğidir.",
     learningObjective:
@@ -301,8 +303,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Sterollerin ortak yapısal çekirdeği, kaynaşmış dört halkadan oluşan _____ çekirdektir.",
-    blankAnswer: "Steroid",
-    acceptedAnswers: ["steroid çekirdek", "steroid"],
+    options: optionSet("Steroid", "Porfirin", "İzopren", "Gliserol", "Pentoz"),
+    correctCompletion: "Steroid",
     explanation:
       "Steroller, üçü altı üyeli biri beş üyeli dört kaynaşmış halkadan oluşan steroid çekirdeği taşır.",
     learningObjective:
@@ -316,7 +318,8 @@ export const lipidFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Hayvan dokularında en önemli sterol örneği _____dür.",
-    blankAnswer: "Kolesterol",
+    options: optionSet("Kolesterol", "Ergosterol", "Lanosterol", "β-sitosterol", "Dolikol"),
+    correctCompletion: "Kolesterol",
     explanation:
       "Hayvansal dokulardaki en önemli sterol kolesteroldür.",
     learningObjective:
@@ -330,8 +333,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Yakındaki hücrelere mesaj taşıyan eikosanoit sınıfları arasında prostaglandinler, tromboksanlar ve _____ler yer alır.",
-    blankAnswer: "Lökotrien",
-    acceptedAnswers: ["Lökotrienler", "lokotrien", "lokotrienler", "leukotrien", "leukotrienler"],
+    options: optionSet("Lipoksin", "Lökotrien", "Prostasiklin", "Seramid", "Sterol"),
+    correctCompletion: "Lökotrien",
     explanation:
       "Eikosanoitlerin üç ana sınıfı prostaglandinler, tromboksanlar ve lökotrienlerdir.",
     learningObjective:
@@ -345,8 +348,8 @@ export const lipidFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Mitokondriyal elektron aktarımında görev yapan lipit türevli kinon taşıyıcı _____ olarak bilinir.",
-    blankAnswer: "Ubikinon",
-    acceptedAnswers: ["Koenzim Q", "koenzim q", "coenzyme q"],
+    options: optionSet("Retinal", "Dolikol", "Ubikinon", "Skualen", "Lanosterol"),
+    correctCompletion: "Ubikinon",
     explanation:
       "Ubikinon, lipit türevli kinon yapısıyla elektron taşıyan hareketli mitokondriyal bileşiktir.",
     learningObjective:

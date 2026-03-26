@@ -1,4 +1,4 @@
-import { makeFillBlank } from "./helpers.mjs";
+import { makeFillBlank, optionSet } from "./helpers.mjs";
 
 const sourcePdf = "Karbonhidratlar ve Glikobiyoloji.pdf";
 const sourceTopic = "Karbohidratlar ve glikobiyoloji";
@@ -18,7 +18,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Üç karbonlu ve aldehit grubu taşıyan en basit monosakkarit örneği _____ olarak adlandırılır.",
-    blankAnswer: "Gliseraldehit",
+    options: optionSet("Dihidroksiaseton", "Eritroz", "Gliseraldehit", "Riboz", "Fruktoz"),
+    correctCompletion: "Gliseraldehit",
     explanation:
       "Trioz örnekleri verilirken aldotrioz için gliseraldehit, ketotrioz için dihidroksiaseton kullanılır.",
     learningObjective:
@@ -32,7 +33,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Keton grubu taşıyan en basit trioz monosakkarit, biyokimya terminolojisinde _____ olarak adlandırılır.",
-    blankAnswer: "Dihidroksiaseton",
+    options: optionSet("Gliseraldehit", "Riboz", "Dihidroksiaseton", "Eritroz", "Glukoz"),
+    correctCompletion: "Dihidroksiaseton",
     explanation:
       "Karbonhidratların temel sınıflandırılmasında dihidroksiaseton ketotriozun tipik örneği olarak verilir.",
     learningObjective:
@@ -46,8 +48,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Karbonil grubuna en uzak kiral merkezdeki -OH grubunun sağda bulunması, monosakkaritin _____ konfigürasyonunda olduğunu gösterir.",
-    blankAnswer: "D-izomer",
-    acceptedAnswers: ["D izomer", "D-izomeri", "D izomeri"],
+    options: optionSet("L-izomer", "Alfa", "D-izomer", "Beta", "Epimer"),
+    correctCompletion: "D-izomer",
     explanation:
       "D/L ayrımı, karbonil grubuna en uzak kiral merkezdeki düzenlenişin D- veya L-gliseraldehide benzerliğine göre yapılır.",
     learningObjective:
@@ -61,7 +63,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Monosakkaritlerde D/L sınıflaması, referans olarak _____ molekülünün konfigürasyonuyla karşılaştırma yapılarak kurulur.",
-    blankAnswer: "Gliseraldehit",
+    options: optionSet("Glukoz", "Gliseraldehit", "Dihidroksiaseton", "Riboz", "Fruktoz"),
+    correctCompletion: "Gliseraldehit",
     explanation:
       "D ve L gösterimi, D- veya L-gliseraldehit düzenlenişine benzerlikle belirlenir.",
     learningObjective:
@@ -75,8 +78,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Halkalı monosakkaritlerde halka oluşumuyla yeni stereomerkez haline gelen karbona _____ karbon denir.",
-    blankAnswer: "Anomerik",
-    acceptedAnswers: ["Anomerik karbon"],
+    options: optionSet("Karbonil", "Anomerik", "Terminal", "Primer", "Epimerik"),
+    correctCompletion: "Anomerik",
     explanation:
       "Halka kapanmasıyla oluşan yeni yarı asetal/yarı ketal merkezi anomerik karbon olarak adlandırılır.",
     learningObjective:
@@ -90,8 +93,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Anomerik merkezdeki -OH grubu CH2OH ile ters yöndeyse ilgili anomer _____ olarak adlandırılır.",
-    blankAnswer: "Alfa",
-    acceptedAnswers: ["alpha", "α", "alfa anomer", "alpha anomer"],
+    options: optionSet("Beta", "Epimer", "Alfa", "L-izomer", "D-izomer"),
+    correctCompletion: "Alfa",
     explanation:
       "Alfa anomer, anomerik merkezdeki -OH grubunun CH2OH ile ters yönde bulunmasıyla tanımlanır.",
     learningObjective:
@@ -105,7 +108,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Sulu çözeltide bir şekerin alfa ve beta anomerleri arasında denge kurulmasına _____ denir.",
-    blankAnswer: "Mutarotasyon",
+    options: optionSet("Epimerizasyon", "Mutarotasyon", "Denatürasyon", "Esterleşme", "Oksidasyon"),
+    correctCompletion: "Mutarotasyon",
     explanation:
       "Mutarotasyon, halka açılıp kapanması üzerinden alfa ve beta anomerleri arasında dönüşümün kurulmasıdır.",
     learningObjective:
@@ -119,8 +123,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bir hidroksil grubunun amino grupla yer değiştirdiği heksoz türevleri _____ olarak adlandırılır.",
-    blankAnswer: "Amino şekerler",
-    acceptedAnswers: ["Amino sekerler", "amino şeker", "amino seker"],
+    options: optionSet("Uronik asitler", "Deoksi şekerler", "Amino şekerler", "Alditoller", "Ketozlar"),
+    correctCompletion: "Amino şekerler",
     explanation:
       "Glukozamin ve galaktozamin gibi örnekler amino şeker sınıfında değerlendirilir.",
     learningObjective:
@@ -134,8 +138,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Glukuronik asit gibi karboksilleşmiş heksoz türevleri _____ asit sınıfına girer.",
-    blankAnswer: "Uronik",
-    acceptedAnswers: ["Uronik asit"],
+    options: optionSet("Amino", "Uronik", "Deoksi", "Fosforik", "Ketoz"),
+    correctCompletion: "Uronik",
     explanation:
       "Heksozların yükseltgenmiş türevleri arasında glukuronik asit gibi uronik asitler bulunur.",
     learningObjective:
@@ -149,8 +153,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Serbest anomerik karbon taşıyan disakkaritler biyokimyada _____ şekerler olarak tanımlanır.",
-    blankAnswer: "İndirgen",
-    acceptedAnswers: ["İndirgen şekerler", "indirgen şeker"],
+    options: optionSet("İndirgen", "İndirgen olmayan", "Fosforillenmiş", "Aromatik", "Dallanmış"),
+    correctCompletion: "İndirgen",
     explanation:
       "İndirgenlik, anomerik merkezin halka-zincir dengesi kurabilecek biçimde serbest kalmasına bağlıdır.",
     learningObjective:
@@ -164,8 +168,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Trehalozun indirgen olmamasının temel nedeni, iki monosakkaritin de _____ karbonlarının glikozidik bağa katılmasıdır.",
-    blankAnswer: "Anomerik",
-    acceptedAnswers: ["Anomerik karbon", "anomerik karbonlar"],
+    options: optionSet("Karbonil", "Anomerik", "Terminal", "Karboksil", "Primer"),
+    correctCompletion: "Anomerik",
     explanation:
       "Trehalozda her iki anomerik karbon bağ oluşumuna katıldığı için halka-zincir dengesi kuracak serbest merkez kalmaz.",
     learningObjective:
@@ -179,8 +183,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bir monosakkaritin anomerik karbonu ile diğer şekerin hidroksil grubu arasında kurulan bağ, disakkaritlerde _____ bağı olarak adlandırılır.",
-    blankAnswer: "O-glikozit",
-    acceptedAnswers: ["O glikozit", "O-glikozit bağı", "O glikozit bağı", "O-glikozidik bağ"],
+    options: optionSet("N-glikozit", "Ester", "O-glikozit", "Peptit", "Disülfit"),
+    correctCompletion: "O-glikozit",
     explanation:
       "Disakkarit oluşumunda bir şekerin anomerik karbonu ile diğer şekerin -OH grubu arasında O-glikozit bağı kurulur.",
     learningObjective:
@@ -194,8 +198,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Zor",
     promptText:
       "α-glukopiranozil-(1→4) adlandırmasında bağın ikinci şekerde yöneldiği karbon, _____ numaralı karbondur.",
-    blankAnswer: "4",
-    acceptedAnswers: ["Dört", "Dördüncü", "4. karbon", "4 numaralı karbon"],
+    options: optionSet("2", "4", "6", "1", "3"),
+    correctCompletion: "4",
     explanation:
       "Parantez içindeki (1→4) gösterimi, bağın birinci şekerin anomerik karbonundan ikinci şekerin 4 numaralı karbonuna uzandığını gösterir.",
     learningObjective:
@@ -209,7 +213,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Bitkilerde başlıca depo polisakkarit _____ olarak adlandırılır.",
-    blankAnswer: "Nişasta",
+    options: optionSet("Selüloz", "Nişasta", "Kitin", "Glikojen", "Dekstran"),
+    correctCompletion: "Nişasta",
     explanation:
       "Bitkisel depo polisakkariti nişastadır ve amiloz ile amilopektinden oluşur.",
     learningObjective:
@@ -223,7 +228,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Hayvan hücrelerinde yüksek dallanma gösteren başlıca depo polisakkarit _____dir.",
-    blankAnswer: "Glikojen",
+    options: optionSet("Nişasta", "İnülin", "Glikojen", "Selüloz", "Kitin"),
+    correctCompletion: "Glikojen",
     explanation:
       "Glikojen, hayvanlarda depo amacıyla kullanılan ve sık dallanan glukoz polimeridir.",
     learningObjective:
@@ -237,7 +243,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Hayvanlarda β(1→4) bağlarını parçalayan enzim bulunmadığı için yapısal homopolisakkaritlerden _____ sindirilemez.",
-    blankAnswer: "Selüloz",
+    options: optionSet("Glikojen", "Kitin", "Selüloz", "Amiloz", "Dekstran"),
+    correctCompletion: "Selüloz",
     explanation:
       "Bağırsak enzimleri alfa bağlarını hidroliz eder; beta(1→4) bağları içeren selüloz ise hayvanlarda sindirilemez.",
     learningObjective:
@@ -251,7 +258,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Eklem bacaklı dış iskeleti ile bazı mantar yapılarında bulunan azotlu yapısal homopolisakkarit _____dir.",
-    blankAnswer: "Kitin",
+    options: optionSet("Selüloz", "Kitin", "Amiloz", "Glikojen", "İnülin"),
+    correctCompletion: "Kitin",
     explanation:
       "Kitin, N-asetilglukozamin türevlerinden oluşan yapısal homopolisakkarit olarak verilir.",
     learningObjective:
@@ -265,7 +273,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bakteri hücre duvarında tekrarlayan heteropolisakkarit birimleri peptit köprüleriyle birleştiren yapı _____ olarak adlandırılır.",
-    blankAnswer: "Peptidoglikan",
+    options: optionSet("Hiyaluronan", "Peptidoglikan", "Glikojen", "Selüloz", "Heparin"),
+    correctCompletion: "Peptidoglikan",
     explanation:
       "Bakteri hücre duvarının temel heteropolisakkarit yapısı peptidoglikandır.",
     learningObjective:
@@ -279,8 +288,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Peptidoglikandaki tekrar eden disakkarit birimlerinden biri N-asetilglukozamin ise diğeri N-asetil_____ asittir.",
-    blankAnswer: "Muramik",
-    acceptedAnswers: ["Muramik asit"],
+    options: optionSet("Muramik", "Glukuronik", "İduronik", "Galakturonik", "Sialik"),
+    correctCompletion: "Muramik",
     explanation:
       "Peptidoglikan, beta(1→4) bağıyla bağlanan N-asetilglukozamin ve N-asetilmuramik asit kalıntılarından oluşur.",
     learningObjective:
@@ -294,8 +303,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Glikozaminoglikanlar, hücre dışı matriste tekrarlayan _____ birimlerinden oluşan doğrusal heteropolisakkaritlerdir.",
-    blankAnswer: "Disakkarit",
-    acceptedAnswers: ["Disakkarit birimleri", "disakkaritler"],
+    options: optionSet("Monosakkarit", "Disakkarit", "Trisakkarit", "Oligosakkarit", "Heksüronat"),
+    correctCompletion: "Disakkarit",
     explanation:
       "GAG'ler, tekrar eden disakkarit birimleri içeren doğrusal heteropolisakkarit ailesi olarak tanımlanır.",
     learningObjective:
@@ -309,8 +318,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Sülfat içermemesiyle istisna oluşturan glikozaminoglikan _____dır.",
-    blankAnswer: "Hiyaluronan",
-    acceptedAnswers: ["Hyaluronan", "hiyalüronan", "hyaluronan"],
+    options: optionSet("Dermatan sülfat", "Hiyaluronan", "Heparin", "Keratan sülfat", "Kondroitin sülfat"),
+    correctCompletion: "Hiyaluronan",
     explanation:
       "Hiyaluronan, sülfat içermeyen GAG örneği olduğu için bu grupta istisna kabul edilir.",
     learningObjective:
@@ -324,8 +333,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "GAG tekrar biriminde amino şekere eşlik eden ikinci monosakkarit tipi çoğunlukla bir _____ asittir.",
-    blankAnswer: "Uronik",
-    acceptedAnswers: ["Uronik asit"],
+    options: optionSet("Amino", "Uronik", "Fosforik", "Keto", "Aldonik"),
+    correctCompletion: "Uronik",
     explanation:
       "Glikozaminoglikan tekrar birimlerinde amino şekere sıklıkla glukuronik veya iduronik gibi uronik asitler eşlik eder.",
     learningObjective:
@@ -339,8 +348,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Bir veya daha fazla glikozaminoglikan zinciri taşıyan makromoleküller _____ olarak adlandırılır.",
-    blankAnswer: "Proteoglikanlar",
-    acceptedAnswers: ["Proteoglikan", "proteoglycan", "proteoglycans"],
+    options: optionSet("Glikoproteinler", "Proteoglikanlar", "Lektinler", "Glikolipitler", "Disakkaritler"),
+    correctCompletion: "Proteoglikanlar",
     explanation:
       "Proteoglikanlar, hücre yüzeyi veya ECM'de yer alan ve bir ya da daha fazla GAG zinciri taşıyan makromoleküllerdir.",
     learningObjective:
@@ -354,8 +363,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Karbohidrat kısmı göreceli olarak kısa ve dallanmış olan protein konjugatları _____ sınıfına girer.",
-    blankAnswer: "Glikoprotein",
-    acceptedAnswers: ["Glikoproteinler"],
+    options: optionSet("Proteoglikan", "Glikoprotein", "Glikolipit", "Lektin", "Polisakkarit"),
+    correctCompletion: "Glikoprotein",
     explanation:
       "Glikoproteinlerde karbonhidrat kısmı proteoglikanlara göre daha kısa ve daha dallı yapıdadır.",
     learningObjective:
@@ -369,8 +378,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Karbohidrat zincirinin lipide kovalent bağlandığı hücre yüzeyi bileşikleri _____ olarak adlandırılır.",
-    blankAnswer: "Glikolipitler",
-    acceptedAnswers: ["Glikolipit", "glycolipid", "glycolipids"],
+    options: optionSet("Proteoglikanlar", "Glikoproteinler", "Glikolipitler", "Lektinler", "Glikozaminoglikanlar"),
+    correctCompletion: "Glikolipitler",
     explanation:
       "Glikolipitler, karbohidrat zincirlerini lipit omurgasına kovalent olarak bağlayan glikokonjugat sınıfıdır.",
     learningObjective:
@@ -384,8 +393,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Kolay",
     promptText:
       "Özgül oligosakkarit dizilerini tanıyan proteinler _____ olarak adlandırılır.",
-    blankAnswer: "Lektinler",
-    acceptedAnswers: ["Lektin"],
+    options: optionSet("Glikozidazlar", "Lektinler", "Proteoglikanlar", "Sfingomiyelinler", "Polisakkaritler"),
+    correctCompletion: "Lektinler",
     explanation:
       "Şeker kodunu okuyan protein ailesi lektinlerdir; özgül oligosakkarit motiflerini tanırlar.",
     learningObjective:
@@ -399,8 +408,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Orta",
     promptText:
       "Hücrelerin özgül oligosakkarit düzenleriyle biyolojik bilgi kodlaması biyokimyada _____ kavramıyla açıklanır.",
-    blankAnswer: "Şeker kodu",
-    acceptedAnswers: ["Seker kodu"],
+    options: optionSet("Mutarotasyon", "Şeker kodu", "Denatürasyon", "Anomerik etki", "Hidroliz"),
+    correctCompletion: "Şeker kodu",
     explanation:
       "Karbohidrat dizileri milyarlarca olası kombinasyonla bilgi taşıyabildiği için bu olgu şeker kodu kavramıyla açıklanır.",
     learningObjective:
@@ -414,8 +423,8 @@ export const carbohydrateFillBlanks = [
     difficulty: "Zor",
     promptText:
       "Kuvvetli asit hidrolizi sonrası monosakkarit bileşimini belirlemede kullanılan yöntemlerden biri _____ kromatografisidir.",
-    blankAnswer: "İyon değişim",
-    acceptedAnswers: ["İyon değişim kromatografisi"],
+    options: optionSet("İnce tabaka", "İyon değişim", "Afinite", "Jel filtrasyon", "Gaz-sıvı"),
+    correctCompletion: "İyon değişim",
     explanation:
       "Analitik bölümde, hidroliz sonrası monosakkarit bileşiminin iyon değişim kromatografisi gibi yöntemlerle çözümlenebileceği belirtilir.",
     learningObjective:
